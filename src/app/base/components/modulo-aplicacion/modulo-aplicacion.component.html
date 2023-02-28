@@ -1,0 +1,127 @@
+<p-sidebar [(visible)]="show" styleClass="sidebar_dtic" position="right">
+  <span class="title-sidebar">{{ "mods_apps.titulo" | translate }}</span>
+  <div class="p-grid p-mt-3">
+    <div class="p-col-12">
+      <p-tabMenu [model]="tabs" [activeItem]="tabs[index]">
+        <ng-template pTemplate="item" let-item>
+          {{ item.label | translate }}
+        </ng-template>
+      </p-tabMenu>
+      <ng-container [ngSwitch]="index">
+        <ng-container *ngSwitchCase="0">
+          <div
+            class="p-grid p-mt-2"
+            *ngIf="config.SISTEMA.LOADS.MODULOS.BUTTON"
+          >
+            <div class="p-col-12 p-text-center small">
+              {{ "mods_apps.modulos.subtitulo" | translate }}<br />
+              <span class="text-primary strong">{{
+                app_selected?.nombre
+              }}</span>
+            </div>
+            <div class="p-col-12">
+              <span class="p-input-icon-left" style="width: 100%">
+                <i class="pi pi-search"></i>
+                <input
+                  type="search"
+                  pInputText
+                  class="p-inputtext-sm"
+                  placeholder="{{ 'forms.filter' | translate }}"
+                  [(ngModel)]="filterM"
+                  (input)="filtering('modulo')"
+                  style="width: 100%"
+                />
+              </span>
+            </div>
+            <div class="p-col-12">
+              <ng-container *ngFor="let mod_group of modulos">
+                {{ mod_group.grupo }}
+                <div class="p-d-flex p-flex-column p-mb-1 box_modulos">
+                  <ng-container
+                    *ngFor="let modulo of mod_group.modulos; let ult = last"
+                  >
+                    <div>
+                      <div
+                        class="p-d-flex p-ai-center container_modulo"
+                        title="{{ modulo.descripcion }}"
+                        (click)="go_modulo_app(modulo, 'modulo')"
+                      >
+                        <div class="p-col-fixed" style="width: 46px">
+                          <img
+                            width="32"
+                            class="img-modulo-aplicacion"
+                            src="{{ modulo.icono }}"
+                          />
+                        </div>
+                        <div
+                          class="p-col {{
+                            modulo.cod_modulo == modulo_selected.cod_modulo
+                              ? 'modulo_activo'
+                              : ''
+                          }}"
+                        >
+                          {{ modulo.nombre }}
+                        </div>
+                      </div>
+                    </div>
+                  </ng-container>
+                </div>
+              </ng-container>
+              <ng-container *ngIf="modulos.length == 0">
+                {{ "forms.no_results" | translate }}
+              </ng-container>
+            </div>
+          </div>
+        </ng-container>
+        <ng-container *ngSwitchCase="1">
+          <div class="p-grid p-mt-2" *ngIf="config.SISTEMA.LOADS.APPS.BUTTON">
+            <div class="p-col-12">
+              <span class="p-input-icon-left" style="width: 100%">
+                <i class="pi pi-search"></i>
+                <input
+                  type="search"
+                  pInputText
+                  class="p-inputtext-sm"
+                  placeholder="{{ 'forms.filter' | translate }}"
+                  [(ngModel)]="filterA"
+                  (input)="filtering('aplicacion')"
+                  style="width: 100%"
+                />
+              </span>
+            </div>
+            <div class="p-col-12 p-mt-3">
+              <ng-container *ngFor="let app of aplicaciones; let ult = last">
+                <div class="p-d-flex p-flex-column p-mb-1 container_app">
+                  <div>
+                    <div
+                      class="p-d-flex p-ai-center"
+                      (click)="go_modulo_app(app, 'aplicacion')"
+                    >
+                      <div class="p-col-fixed" style="width: 46px">
+                        <img
+                          width="32"
+                          class="img-modulo-aplicacion"
+                          src="{{ app.icono }}"
+                        />
+                      </div>
+                      <div
+                        class="p-col {{
+                          app.id == app_selected.id ? 'app_activa' : ''
+                        }}"
+                      >
+                        {{ app.nombre }}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </ng-container>
+              <ng-container *ngIf="aplicaciones.length == 0">
+                {{ "forms.no_results" | translate }}
+              </ng-container>
+            </div>
+          </div>
+        </ng-container>
+      </ng-container>
+    </div>
+  </div>
+</p-sidebar>

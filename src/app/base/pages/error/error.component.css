@@ -1,0 +1,15 @@
+:host::ng-deep .p-panel-error {
+  margin: 0 auto;
+  width: 80%;
+}
+
+:host::ng-deep .p-disabled,
+.p-component:disabled {
+  opacity: 1;
+}
+
+@media screen and (max-width: 992px) {
+  :host::ng-deep .p-panel-error {
+    width: 100%;
+  }
+}

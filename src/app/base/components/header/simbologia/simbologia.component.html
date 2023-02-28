@@ -1,0 +1,56 @@
+<p-dialog
+  header="{{ 'ayuda.simbologia.titulo' | translate }}"
+  [baseZIndex]="10000"
+  [(visible)]="showDialog"
+  [modal]="true"
+  [style]="{ width: '60vw' }"
+  [maximizable]="true"
+  [draggable]="false"
+  [resizable]="false"
+  [position]="'top'"
+  [breakpoints]="{ '960px': '75vw', '640px': '100vw' }"
+>
+  <div class="p-grid">
+    <div class="p-col-12 p-sm-12 p-md-12 p-lg-12 p-xl-12">
+      <p-accordion multiple="true">
+        <ng-container *ngFor="let symbol of simbolos">
+          <p-accordionTab *ngIf="symbol.show">
+            <ng-template pTemplate="header">
+              <i class="{{ symbol.icon }}" style="padding-right: 10px"> </i
+              >{{ symbol.titulo | translate }}
+            </ng-template>
+
+            <div class="{{ symbol.subs != null ? 'p-mb-2' : '' }}">
+              {{ symbol.glosa | translate }}
+            </div>
+            <ng-container *ngIf="symbol.subs != null">
+              <p-accordion multiple="true">
+                <ng-container *ngFor="let subsymbol of symbol.subs">
+                  <p-accordionTab *ngIf="subsymbol.show">
+                    <ng-template pTemplate="header">
+                      <i
+                        class="{{ subsymbol.icon }}"
+                        style="padding-right: 10px"
+                      >
+                      </i
+                      >{{ subsymbol.titulo | translate }}
+                    </ng-template>
+                    {{ subsymbol.glosa | translate }}
+                  </p-accordionTab>
+                </ng-container>
+              </p-accordion>
+            </ng-container>
+          </p-accordionTab>
+        </ng-container>
+      </p-accordion>
+    </div>
+  </div>
+  <ng-template pTemplate="footer">
+    <p-button
+      label="{{ 'button.cerrar' | translate }}"
+      icon="pi pi-times"
+      styleClass="p-button-sm p-button-secondary p-button-text"
+      (click)="showDialog = false"
+    ></p-button>
+  </ng-template>
+</p-dialog>

@@ -1,0 +1,264 @@
+{
+  "loading": "Espere por favor...",
+  "idioma": {
+    "summary": "Idioma",
+    "detail": "Español activado"
+  },
+  "primeng": {
+    "startsWith": "Comienza con",
+    "contains": "Contiene",
+    "notContains": "No contiene",
+    "endsWith": "Termina en ",
+    "equals": "Igual",
+    "notEquals": "Distinto",
+    "lt": "Menor que",
+    "lte": "Menor o igual que",
+    "gt": "Mayor",
+    "gte": "Mayor o igual que",
+    "is": "es",
+    "isNot": "no es",
+    "before": "Antes",
+    "after": "Despues",
+    "clear": "Limpiar",
+    "apply": "Aplicar",
+    "matchAll": "Coincide todo",
+    "matchAny": "Coincide cualquiera",
+    "addRule": "Agregar regla",
+    "removeRule": "Elimina regla",
+    "accept": "Si",
+    "reject": "No",
+    "choose": "Seleccionar",
+    "upload": "Cargar",
+    "cancel": "Cancelar",
+    "dayNames": [
+      "Domingo",
+      "Lunes",
+      "Martes",
+      "Miércoles",
+      "Jueves",
+      "Viernes",
+      "Sabado"
+    ],
+    "dayNamesShort": ["Dom", "Lun", "Mar", "Mie", "Jue", "Vie", "Sab"],
+    "dayNamesMin": ["Do", "Lu", "Ma", "Mi", "Ju", "Vi", "Sa"],
+    "monthNames": [
+      "Enero",
+      "Febrero",
+      "Marzo",
+      "Abril",
+      "Mayo",
+      "Junio",
+      "Julio",
+      "Agosto",
+      "Septiembre",
+      "Octubre",
+      "Noviembre",
+      "Diciembre"
+    ],
+    "monthNamesShort": [
+      "Ene",
+      "Feb",
+      "Mar",
+      "Abr",
+      "May",
+      "Jun",
+      "Jul",
+      "Ago",
+      "Sep",
+      "Oct",
+      "Nov",
+      "Dic"
+    ],
+    "today": "Hoy",
+    "weekHeader": "Sm"
+  },
+  "button": {
+    "aceptar": "Aceptar",
+    "cancelar": "Cancelar",
+    "enviar": "Enviar",
+    "volver": "Volver",
+    "cerrar": "Cerrar",
+    "volver_al_portal": {
+      "label": "Volver al portal",
+      "text": "¿Estas seguro?",
+      "error": "Ha ocurrido un error al volver al portal. Intente nuevamente."
+    }
+  },
+  "ayuda": {
+    "nombre": "Ayuda",
+    "contacto": {
+      "titulo": "Contacto",
+      "subtitulo": "Escríbenos tus consultas y/o dudas.<br/>Te contactaremos a la brevedad posible. Se enviará una copia al correo indicado.",
+      "correo": "Correo",
+      "mensaje": "Mensaje",
+      "nombre": "Nombre",
+      "validar": {
+        "correo": "Ingresa un correo vigente tuyo",
+        "mensaje": "Redacta el mensaje de la consulta",
+        "success": "¿Deseas enviar tu consulta?"
+      },
+      "success": "Consulta enviada con exito",
+      "error": "Ha ocurrido un error al enviar tu consulta. Intenta nuevamente."
+    },
+    "simbologia": {
+      "titulo": "Simbología",
+      "simbolos": {
+        "navegacion": {
+          "nombre": "Navegación",
+          "glosa": "Puedes acceder a los distintas secciones que ofrece la aplicacion"
+        },
+        "portal": {
+          "nombre": "Volver al portal",
+          "glosa": "Puedes regresar al Portal por el cual ingresaste en cualquier momento"
+        },
+        "avisos": {
+          "nombre": "Avisos",
+          "glosa": "Mensajeria universal para dar conocimientos de ciertos eventos"
+        },
+        "ayuda": {
+          "nombre": "Ayuda",
+          "glosa": "Para dudas y/o consultas ofrecemos lo siguiente:",
+          "subs": {
+            "contacto": {
+              "nombre": "Contacto",
+              "glosa": "Escribenos tus dudas, consultas y/o problemas que puedas tener con nuestras aplicaciones"
+            },
+            "simbologia": {
+              "nombre": "Simbología",
+              "glosa": "Iconos y sus significados"
+            }
+          }
+        },
+        "modulos_apps": {
+          "nombre": "Mis aplicaciones",
+          "glosa": "Navega entre las variadas aplicaciones y Portales que dispones"
+        },
+        "usuario": {
+          "nombre": "Mi cuenta",
+          "glosa": "En tu cuenta de usuario, te ofrecemos:",
+          "subs": {
+            "profile": {
+              "nombre": "Mis datos",
+              "glosa": "Puedes ver tu tarjeta de presentación"
+            },
+            "correo": {
+              "nombre": "Correo UV",
+              "glosa": "Ingresa a tu correo institucional de manera mas rapida"
+            },
+            "cambiaclave": {
+              "nombre": "Cambia clave",
+              "glosa": "Puedes cambiar o recuperar información de tu cuenta institucional como tu clave de acceso, correo personal, etc"
+            },
+            "logout": {
+              "nombre": "Cerrar sesión",
+              "glosa": "Si deseas finalizar tu actual sesión"
+            }
+          }
+        }
+      }
+    }
+  },
+  "datosIniciales": {
+    "titulo": "Datos iniciales",
+    "error": "Ha ocurrido un error al obtener datos iniciales."
+  },
+  "usuario": {
+    "titulo": "Mi cuenta",
+    "profile": {
+      "titulo": "Mis datos",
+      "rut": "Rut",
+      "nombre": "Nombre",
+      "correo_uv": "Correo UV",
+      "correo_personal": "Correo personal",
+      "idioma": "Idioma",
+      "error": "Ha ocurrido un error al obtener tus datos de usuario."
+    },
+    "cambia_clave": "Cambia clave",
+    "logout": "Cerrar sesión",
+    "logout_msgs": "¿Estas seguro?"
+  },
+  "menus": {
+    "titulo": "Navegación",
+    "error": "Ha ocurrido un error al obtener la navegación."
+  },
+  "mods_apps": {
+    "titulo": "Mis aplicaciones",
+    "modulos": {
+      "titulo": "Aplicaciones",
+      "subtitulo": "Las siguientes aplicaciones dependen de:",
+      "error": "Ha ocurrido un error al obtener las aplicaciones del portal.",
+      "maintenance": "La aplicación se encuentra actualmente en mantención"
+    },
+    "aplicaciones": {
+      "titulo": "Portales",
+      "error": "Ha ocurrido un error tus portales."
+    },
+    "errorNavigate": "Ha ocurrido un error al ingresar al aplicaciones/portal. Intenta nuevamente."
+  },
+  "noticias_avisos": {
+    "avisos": {
+      "titulo": "Avisos",
+      "single": "Aviso",
+      "empty": "Sin avisos",
+      "click": "Haz clic en ellas para enterarte más."
+    },
+    "dias": "dias",
+    "mostrar_todas": "Mostrar todas",
+    "publicado_el": "Publicado el"
+  },
+  "system_handler": {
+    "404": {
+      "titulo": "Página no encontrada",
+      "text": "El menú al cual deseas ingresar no se encuentra.<br/>Para dudas y/o consultas al respecto, favor escribirnos a <em>soporte@uv.cl</em>",
+      "back": "Volver al inicio"
+    },
+    "no-content": {
+      "titulo": "Error de servicios",
+      "text": "Hay problemas de conexión a los servicios institucionales.<br/>Para dudas y/o consultas al respecto, favor escribirnos a <em>soporte@uv.cl</em>"
+    },
+    "no-token": {
+      "titulo": "Sesión expirada",
+      "text": "Tu sesión actual ha expirado. Te invitamos a iniciar sesión nuevamente",
+      "go_login": "Volver a Login Institucionales"
+    },
+    "maintenance": {
+      "titulo": "En mantención",
+      "textModulo": "La aplicación se encuentra actualmente en mantención.<br/>Para dudas y/o consultas al respecto, favor escribirnos a <em>soporte@uv.cl</em>",
+      "textMenu": "El menú al cual desea acceder se encuentra actualmente en mantención.<br/>Para dudas y/o consultas al respecto, favor escribirnos a <em>soporte@uv.cl</em>",
+      "backHome": "Volver al inicio",
+      "backPortal": "Volver al Portal"
+    },
+    "develop": {
+      "titulo": "En desarrollo",
+      "text": "Lo sentimos. Esta sección se encuentra en desarrollo actualmente.<br/>Para dudas y/o consultas al respecto, favor escribirnos a <em>soporte@uv.cl</em>",
+      "back": "Volver al inicio"
+    },
+    "error": {
+      "titulo": "Ooops, Error",
+      "text": "Ha ocurrido un error en la aplicación.<br/>Para dudas y/o consultas al respecto, favor escribirnos a <em>soporte@uv.cl</em>",
+      "codigo": "Código",
+      "nivel": "Nivel",
+      "type": "Tipo",
+      "detalle": "Detalle"
+    },
+    "reporte": {
+      "text": "Error en el reporte: {{val}}"
+    }
+  },
+  "idle": {
+    "titulo": "¿Estás ahí?",
+    "body": "¿Deseas más tiempo para navegar?",
+    "button": "Si por favor"
+  },
+  "forms": {
+    "fields": "(*) Campo obligatorio",
+    "ejemplo": "Ejemplo",
+    "required": "Campo requerido",
+    "invalid": "Campo inválido",
+    "no_results": "Sin resultados",
+    "filter": "Filtrar"
+  },
+  "routing":{
+    "canActivate": "No tienes permisos para ingresar. Favor escribenos a soporte@uv.cl"
+  }
+}

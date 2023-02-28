@@ -1,0 +1,78 @@
+body,
+html {
+  /* font-family: 'Barlow', sans-serif !important; */
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica,
+    Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol !important;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 9999;
+  overflow: hidden;
+  background: #fff;
+}
+.text-white {
+  color: white;
+}
+.text-muted {
+  color: #6c757d !important;
+}
+.text-primary {
+  color: #007bff !important;
+}
+.small {
+  font-size: 75% !important;
+}
+.img-banner {
+  margin-top: 0.5rem;
+  width: 240px;
+}
+.p-overlaypanel-custom.p-overlaypanel:after,
+.p-overlaypanel-custom.p-overlaypanel:before {
+  content: none !important;
+}
+.p-overlaypanel-custom {
+  margin-top: 0.7rem !important;
+}
+.p-overlaypanel-custom > .p-overlaypanel-content {
+  padding: 0.5rem 0px;
+}
+.p-overlaypanel-footer-custom {
+  text-align: center;
+  cursor: pointer;
+}
+.p-overlaypanel-footer-custom > .title {
+  padding: 0.5rem;
+}
+.p-overlaypanel-footer-custom:hover > .title {
+  background: #e9ecef;
+}
+.title-sidebar {
+  color: #212529;
+  font-weight: 600;
+}
+.error-icon {
+  color: #5a5c69;
+  font-size: 7rem;
+  line-height: 1;
+}
+.error-icon i {
+  color: #5a5c69;
+  font-size: 7rem;
+  padding-top: 2.5rem;
+}
+.error-title {
+  font-size: 2.5rem;
+  font-weight: 300;
+}
+@media screen and (max-width: 992px) {
+  .p-overlaypanel-body-custom {
+    overflow-y: auto;
+    max-height: 200px;
+  }
+}

@@ -1,0 +1,95 @@
+<div class="p-grid">
+  <div class="p-col-12 p-sm-12 p-md-12 p-lg-12 p-xl-12" *ngIf="filtrar">
+    <span class="p-input-icon-left">
+      <i class="pi pi-search"></i>
+      <input
+        type="search"
+        pInputText
+        class="p-inputtext-sm"
+        placeholder="{{ 'forms.filter' | translate }}"
+        [(ngModel)]="filter"
+        (input)="filtering()"
+      />
+    </span>
+  </div>
+  <div class="p-col-12 p-sm-12 p-md-12 p-lg-12 p-xl-12">
+    <div class="p-grid">
+      <ng-container *ngFor="let menu of menus">
+        <!-- DESKTOP -->
+        <div
+          class="p-col-12 p-sm-12 p-md-6 p-lg-4 p-xl-4 p-d-none p-d-md-inline-flex"
+        >
+          <div
+            (click)="
+              menu.items.length == 0
+                ? navigate(menu)
+                : menu.estado == 1
+                ? setItems(menu, itemsMenu, $event)
+                : navigate(menu)
+            "
+            class="menu-box p-ai-stretch p-d-flex p-ai-center {{
+              menu.local ? 'menu-box-purple' : ''
+            }}"
+            [ngClass]="{
+              'border-left-primary menu-box-primary': menu.estado == 1,
+              'border-left-danger menu-box-danger': menu.estado == 2,
+              'border-left-warning menu-box-warning': menu.estado == 3
+            }"
+            pTooltip="{{ menu.descripcion }}"
+          >
+            <div class="p-d-flex p-ai-center p-p-2">
+              <div class="p-col-fixed" style="width: 38px">
+                <img
+                  width="32"
+                  [src]="menu.icono"
+                  *ngIf="config.SISTEMA.MENUS.FLAT_ICONS"
+                />
+                <i
+                  class="{{ menu.icono }} menu-icon"
+                  *ngIf="!config.SISTEMA.MENUS.FLAT_ICONS"
+                ></i>
+              </div>
+              <div class="p-col">
+                <span class="menu-name">{{ menu.nombre }}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- MOBILE -->
+        <div class="p-col-12 p-sm-12 p-md-12 p-lg-12 p-xl-12 p-d-md-none">
+          <button
+            pButton
+            pRipple
+            type="button"
+            [ngClass]="{
+              'p-button-warning': !menu.local && menu.estado == 3,
+              'p-button-danger': !menu.local && menu.estado == 2,
+              'p-button-help': menu.local
+            }"
+            icon="{{
+              menu.estado == 2
+                ? 'pi pi-cog'
+                : menu.estado == 3
+                ? 'fas fa-code'
+                : ''
+            }}"
+            label="{{ menu.nombre }}"
+            class="p-button-outlined"
+            style="width: 100%; display: block"
+            (click)="
+              menu.items.length == 0
+                ? navigate(menu)
+                : setItems(menu, itemsMenu, $event)
+            "
+          ></button>
+        </div>
+        <p-menu #itemsMenu [popup]="true" [model]="items"></p-menu>
+      </ng-container>
+      <ng-container *ngIf="menus.length == 0">
+        <div class="p-col-12 p-sm-12 p-md-12 p-lg-12 p-xl-12">
+          {{ "forms.no_results" | translate }}
+        </div>
+      </ng-container>
+    </div>
+  </div>
+</div>

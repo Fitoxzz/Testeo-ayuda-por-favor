@@ -1,0 +1,24 @@
+<div class="p-text-center">
+  <div class="error-icon"><i class="pi pi-cog"></i></div>
+  <p class="error-title">
+    {{ "system_handler.maintenance.titulo" | translate }}
+  </p>
+  <ng-container *ngIf="mode == 'module'">
+    <p [innerHTML]="'system_handler.maintenance.textModulo' | translate"></p>
+    <br />
+    <p-button
+      (click)="goPortal()"
+      label="{{ 'system_handler.maintenance.backPortal' | translate }}"
+      icon="fas fa-university"
+    ></p-button>
+  </ng-container>
+  <ng-container *ngIf="mode == 'menu'">
+    <p [innerHTML]="'system_handler.maintenance.textMenu' | translate"></p>
+    <br />
+    <p-button
+      (click)="goHome()"
+      label="{{ 'system_handler.maintenance.backHome' | translate }}"
+      icon="pi pi-home"
+    ></p-button>
+  </ng-container>
+</div>

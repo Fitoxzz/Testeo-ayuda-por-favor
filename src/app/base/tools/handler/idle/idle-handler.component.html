@@ -1,0 +1,27 @@
+<p-dialog
+  header="{{ 'idle.titulo' | translate }}"
+  [(visible)]="showIdle"
+  [baseZIndex]="10000"
+  [draggable]="false"
+  [resizable]="false"
+  [modal]="true"
+  [closeOnEscape]="false"
+  [dismissableMask]="false"
+  [closable]="false"
+>
+  <div class="iconIdle p-mb-1 p-text-center">
+    <i class="fa-solid fa-user-clock fa-3x" style="color: #0055ad"></i>
+  </div>
+  <div class="p-text-center p-mt-2">
+    {{ "idle.body" | translate }}
+  </div>
+  <p-footer>
+    <div class="p-text-center">
+      <p-button
+        (click)="reset()"
+        label="{{ 'idle.button' | translate }}"
+        styleClass="p-button-sm"
+      ></p-button>
+    </div>
+  </p-footer>
+</p-dialog>

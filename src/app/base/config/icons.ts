@@ -1,0 +1,15 @@
+export const icons_config = {
+    navegacion: 'pi pi-bars',
+    modulos_aplicaciones: 'pi pi-th-large',
+    goback_portal: 'fa-solid fa-building-columns',
+    avisos: 'pi pi-bell',
+    ayuda: 'pi pi-question-circle',
+    contacto: 'pi pi-comments',
+    simbologia: 'fas fa-icons',
+    tutorial: 'pi pi-info-circle',
+    usuario: 'pi pi-user',
+    micuenta: 'pi pi-user',
+    correouv: 'pi pi-envelope',
+    cambiaclave: 'pi pi-key',
+    logout: 'pi pi-sign-out',
+};

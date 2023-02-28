@@ -1,0 +1,17 @@
+:host::ng-deep .title-box {
+  padding: 6px !important;
+  color: #d9d9d9 !important;
+}
+:host::ng-deep pdf-zoom-dropdown {
+  padding-top: 0px !important;
+}
+
+:host::ng-deep .loadingInProgress #sidebarContainer {
+  top: 30px !important;
+}
+
+@media (max-width: 840px) {
+  :host::ng-deep #sidebarContent {
+    background-color: rgba(0, 0, 0, 0.7) !important;
+  }
+}

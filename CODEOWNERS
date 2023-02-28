@@ -1,0 +1,7 @@
+src/app/base/ @dticuv/arquitectura
+Jenkinsfile @dticuv/arquitectura
+src/assets/i18n/base @dticuv/arquitectura
+tsconfig.app.json @dticuv/arquitectura
+tsconfig.json @dticuv/arquitectura
+src/polyfills.ts @dticuv/arquitectura
+src/main.ts @dticuv/arquitectura

@@ -1,0 +1,72 @@
+<div class="p-d-flex p-jc-center p-flex-column" *ngIf="errorContext">
+  <div class="p-text-center">
+    <div class="error-icon"><i class="pi pi-times-circle"></i></div>
+    <p class="error-title">
+      {{ "system_handler.error.titulo" | translate }}
+    </p>
+    <p [innerHTML]="'system_handler.error.text' | translate"></p>
+    <br />
+  </div>
+  <p-panel styleClass="p-panel-error">
+    <ng-template pTemplate="header">
+      {{ "system_handler.error.detalle" | translate }}
+    </ng-template>
+    <div class="p-grid">
+      <div class="p-col-12 p-sm-12 p-md-12 p-lg-3 p-xl-3" *ngIf="errorContext.status">
+        <div class="p-inputgroup" >
+          <span class="p-inputgroup-addon">{{
+            "system_handler.error.codigo" | translate
+          }}</span>
+          <input
+            type="text"
+            pInputText
+            [(ngModel)]="errorContext.status"
+            [disabled]="true"
+          />
+        </div>
+      </div>
+      <div class="p-col-12 p-sm-12 p-md-12 p-lg-3 p-xl-3" *ngIf="errorContext.level">
+        <div class="p-inputgroup" >
+          <span class="p-inputgroup-addon">{{
+            "system_handler.error.nivel" | translate
+          }}</span>
+          <input
+            type="text"
+            pInputText
+            [(ngModel)]="errorContext.level"
+            [disabled]="true"
+          />
+        </div>
+      </div>
+      <div class="p-col-12 p-sm-12 p-md-12 p-lg-3 p-xl-3" *ngIf="errorContext.type">
+        <div class="p-inputgroup" >
+          <span class="p-inputgroup-addon">{{
+            "system_handler.error.type" | translate
+          }}</span>
+          <input
+            type="text"
+            pInputText
+            [(ngModel)]="errorContext.type"
+            [disabled]="true"
+          />
+        </div>
+      </div>
+      <div class="p-col-12 p-sm-12 p-md-12 p-lg-3 p-xl-3" *ngIf="errorContext.router">
+        <div class="p-inputgroup" >
+          <span class="p-inputgroup-addon">URL</span>
+          <input
+            type="text"
+            pInputText
+            [(ngModel)]="errorContext.router"
+            [disabled]="true"
+          />
+        </div>
+      </div>
+    </div>
+    <div class="p-grid p-mt-2">
+      <div class="p-col-12 p-sm-12 p-md-12 p-lg-12 p-xl-12 p-mb-0">
+        <span [innerHTML]="errorContext.message"></span>
+      </div>
+    </div>
+  </p-panel>
+</div>

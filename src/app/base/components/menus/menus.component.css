@@ -1,0 +1,47 @@
+.menu-item {
+  color: var(--text-color);
+  border-radius: 3px;
+  cursor: pointer;
+}
+.menu-item:hover {
+  background-color: #e9ecef;
+}
+.img-menu {
+  width: 24px;
+  height: 24px;
+  vertical-align: middle;
+}
+.box_items {
+  border-radius: 4px;
+  margin-left: 1.6rem;
+  display: none;
+}
+
+:host::ng-deep .p-accordion .p-accordion-header .p-accordion-header-link {
+  padding: 0px !important;
+  border: none !important;
+  background: transparent;
+  font-weight: initial !important;
+  border-radius: 4px !important;
+  transition: none !important;
+  margin-left: -0.5rem;
+  margin-right: -0.5rem;
+}
+
+:host::ng-deep
+  .p-accordion
+  .p-accordion-header:not(.p-disabled).p-highlight:hover
+  .p-accordion-header-link {
+  background: #e9ecef !important;
+}
+
+:host::ng-deep .p-accordion .p-accordion-content {
+  border: none !important;
+}
+
+:host::ng-deep
+  .p-accordion
+  .p-accordion-header:not(.p-disabled).p-highlight
+  .p-accordion-header-link {
+  background-color: transparent;
+}

@@ -1,0 +1,100 @@
+<p-dialog
+  #avisoDialog
+  header="{{ 'noticias_avisos.avisos.single' | translate }}"
+  [baseZIndex]="10000"
+  [(visible)]="show_aviso"
+  [modal]="true"
+  [style]="{ width: '50vw' }"
+  [maximizable]="true"
+  [draggable]="false"
+  [resizable]="false"
+  [breakpoints]="{ '960px': '75vw', '640px': '100vw' }"
+  (onHide)="aviso = null"
+  closeOnEscape="false"
+>
+  <span
+    ><i class="fas fa-calendar"></i>
+    {{ "noticias_avisos.publicado_el" | translate }}
+    {{ aviso?.fecha | date : "MMMM dd, yyyy" }}</span
+  ><br />
+  <span class="text-primary">{{ aviso?.nombre }}</span
+  ><br /><br />
+  <span [innerHTML]="aviso?.anuncio"></span>
+  <ng-template pTemplate="footer">
+    <p-button
+      label="{{ 'button.cerrar' | translate }}"
+      icon="pi pi-times"
+      styleClass="p-button-sm p-button-secondary p-button-text"
+      (click)="show_aviso = false"
+    ></p-button>
+  </ng-template>
+</p-dialog>
+
+<p-dialog
+  header="{{ 'noticias_avisos.avisos.titulo' | translate }}"
+  [baseZIndex]="10000"
+  [(visible)]="showDialog"
+  [modal]="true"
+  [style]="{ width: '60vw' }"
+  [maximizable]="true"
+  [draggable]="false"
+  [resizable]="false"
+  [position]="'top'"
+  [breakpoints]="{ '960px': '75vw', '640px': '100vw' }"
+>
+  <p-table
+    #avisostable
+    [value]="avisos"
+    [globalFilterFields]="['nombre']"
+    [rows]="8"
+    styleClass="p-datatable-sm p-datatable-responsive"
+    [paginator]="true"
+    [responsive]="true"
+  >
+    <ng-template pTemplate="caption">
+      <div class="p-d-flex">
+        <span class="p-input-icon-left p-ml-auto">
+          <i class="pi pi-search"></i>
+          <input
+            pInputText
+            type="text"
+            (input)="avisostable.filterGlobal($event.target.value, 'contains')"
+            placeholder="Buscar por"
+            class="p-inputtext-sm"
+          />
+        </span>
+      </div>
+    </ng-template>
+    <ng-template pTemplate="header">
+      <tr>
+        <th>{{ "noticias_avisos.avisos.single" | translate }}</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-avi>
+      <tr>
+        <td>
+          <span
+            ><i class="fas fa-calendar"></i>
+            {{ avi.fecha | date : "MMMM dd, yyyy" }}</span
+          ><br />
+          <span class="text-primary">{{ avi.nombre }}</span
+          ><br />
+          <span [innerHTML]="avi.anuncio"></span>
+        </td>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="emptymessage">
+      <tr>
+        <td colspan="1">Sin alertas</td>
+      </tr>
+    </ng-template>
+  </p-table>
+  <ng-template pTemplate="footer">
+    <p-button
+      label="{{ 'button.cerrar' | translate }}"
+      icon="pi pi-times"
+      styleClass="p-button-sm p-button-secondary p-button-text"
+      (click)="showDialog = false"
+    ></p-button>
+  </ng-template>
+</p-dialog>

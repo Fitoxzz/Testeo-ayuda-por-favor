@@ -1,0 +1,73 @@
+.menu-box {
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 0.25rem;
+  cursor: pointer;
+  word-wrap: break-word;
+  height: 100%;
+  width: 100%;
+}
+
+.border-left-primary {
+  border-left: 0.25rem solid #007bff !important;
+}
+
+.border-left-warning {
+  border-left: 0.25rem solid #f6c23e !important;
+}
+
+.border-left-danger {
+  border-left: 0.25rem solid #e74a3b !important;
+}
+
+.border-left-purple {
+  border-left: 0.25rem solid #8a427a !important;
+}
+
+.menu-box-primary:hover {
+  background-color: #1cc88918;
+}
+.menu-box-primary:hover .menu-name,
+.menu-box-primary:hover .menu-icon {
+  color: #007bff;
+  font-weight: 600;
+}
+
+.menu-box-warning:hover {
+  background-color: #f6c23e1f;
+}
+
+.menu-box-warning:hover .menu-name,
+.menu-box-warning:hover .menu-icon {
+  color: #f6c23e;
+  font-weight: 600;
+}
+
+:host::ng-deep .item-menu-name-warning {
+  color: #f6c23e;
+}
+
+.menu-box-danger:hover {
+  background-color: #e7493b1f;
+}
+
+.menu-box-danger:hover .menu-name,
+.menu-box-danger:hover .menu-icon {
+  color: #e74a3b;
+  font-weight: 600;
+}
+
+:host::ng-deep .item-menu-name-danger {
+  color: #e74a3b;
+}
+
+.menu-box-purple {
+  color: #2c1e30;
+  background-color: #e1cfe7;
+}
+.menu-box-purple:hover {
+  background-color: #e1cfe7 !important;
+}
+.menu-box-purple:hover .menu-name,
+.menu-box-purple:hover .menu-icon {
+  font-weight: 600;
+}

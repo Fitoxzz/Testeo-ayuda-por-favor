@@ -1,0 +1,26 @@
+.box_modulos,
+.box_apps {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+.container_modulo,
+.container_app {
+  padding-left: 5px;
+  padding-right: 5px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+.container_modulo:hover,
+.container_app:hover {
+  background-color: #e9ecef;
+}
+.modulo_activo,
+.app_activa {
+  color: #007bff;
+  font-weight: bold;
+}
+.img-modulo-aplicacion {
+  vertical-align: middle;
+}

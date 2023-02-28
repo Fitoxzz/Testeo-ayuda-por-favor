@@ -1,0 +1,125 @@
+<p-sidebar
+  [(visible)]="show"
+  styleClass="sidebar_dtic"
+  data-parent="#accordionSidebar"
+>
+  <div class="p-d-md-none text-primary">
+    {{ title }}
+  </div>
+  <div class="p-d-flex p-flex-column p-mt-3">
+    <ng-container *ngFor="let menu of menus; let ult = last">
+      <!-- MENUS -->
+      <ng-container *ngIf="menu.items.length == 0">
+        <div>
+          <div
+            class="p-grid p-nogutter p-p-2 menu-item p-ai-center {{
+              menu.items.length > 0 ? 'menu-with-items' : ''
+            }}"
+            title="{{ menu.descripcion }}"
+            (click)="goMenuItem(menu, null)"
+          >
+            <div
+              class="p-col-fixed {{
+                menu.id == menu_selected?.id ? 'text-primary' : ''
+              }}"
+              style="width: 30px"
+            >
+              <img
+                class="img-menu"
+                [src]="menu.icono"
+                *ngIf="config.SISTEMA.MENUS.FLAT_ICONS"
+              />
+              <i
+                class="{{ menu.icono }}"
+                *ngIf="!config.SISTEMA.MENUS.FLAT_ICONS"
+              ></i>
+            </div>
+            <div
+              class="p-col {{
+                menu.id == menu_selected?.id ? 'text-primary p-text-bold' : ''
+              }}"
+            >
+              {{ menu.nombre }}
+            </div>
+          </div>
+        </div>
+      </ng-container>
+      <ng-container *ngIf="menu.items.length > 0">
+        <div style="padding: 0px 0.5rem">
+          <p-accordion>
+            <p-accordionTab>
+              <ng-template pTemplate="header">
+                <div
+                  class="p-grid p-ai-center {{
+                    menu.items.length > 0 ? 'menu-with-items' : ''
+                  }}"
+                  style="margin-top: 0px"
+                  title="{{ menu.descripcion }}"
+                >
+                  <div
+                    class="p-col-fixed  {{
+                      menu.id == menu_selected?.id ? 'text-primary' : ''
+                    }}"
+                    style="width: 40px"
+                  >
+                    <img
+                      class="img-menu"
+                      [src]="menu.icono"
+                      *ngIf="config.SISTEMA.MENUS.FLAT_ICONS"
+                    />
+                    <i
+                      class="{{ menu.icono }}"
+                      *ngIf="!config.SISTEMA.MENUS.FLAT_ICONS"
+                    ></i>
+                  </div>
+                  <div
+                    class="p-col {{
+                      menu.id == menu_selected?.id
+                        ? 'text-primary p-text-bold'
+                        : ''
+                    }}"
+                  >
+                    {{ menu.nombre }}
+                  </div>
+                </div>
+              </ng-template>
+              <ng-container *ngFor="let item of menu.items">
+                <div
+                  class="p-grid menu-item p-ai-center p-mb-2"
+                  title="{{ item.descripcion }}"
+                  (click)="goMenuItem(menu, item)"
+                >
+                  <div
+                    class="p-col-fixed {{
+                      item.metodo == item_selected?.metodo ? 'text-primary' : ''
+                    }}"
+                    style="width: 40px"
+                  >
+                    <img
+                      class="img-menu"
+                      [src]="item.icono"
+                      *ngIf="config.SISTEMA.MENUS.ITEMS_ICON"
+                    />
+                    <i
+                      class="{{ item.icono }}"
+                      *ngIf="!config.SISTEMA.MENUS.ITEMS_ICON"
+                    ></i>
+                  </div>
+                  <div
+                    class="p-col {{
+                      item.metodo == item_selected?.metodo
+                        ? 'text-primary p-text-bold'
+                        : ''
+                    }}"
+                  >
+                    {{ item.nombre }}
+                  </div>
+                </div>
+              </ng-container>
+            </p-accordionTab>
+          </p-accordion>
+        </div>
+      </ng-container>
+    </ng-container>
+  </div>
+</p-sidebar>

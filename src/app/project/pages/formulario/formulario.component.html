@@ -1,0 +1,19 @@
+<p>formulario works!</p>
+<input type="text" pInputText [(ngModel)]="params.rut" />
+<div>
+  <button pButton type="button" label="Click" (click)="getDatos()"></button>
+</div>
+
+
+<div *ngIf="this.alumno">
+  <p-card header="{{this.alumno?.nombres}}" [style]="{'width': '25rem', 'margin-bottom': '2em'}">
+    <ng-template pTemplate="header">
+      <img alt="Card" src="https://repositorio.uv.cl/bancoFotos/18269043/banner/instructivo_matricula.png">
+    </ng-template>
+    <p-chip styleClass="mr-2 custom-chip">{{this.alumno?.rut}}</p-chip>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error repudiandae numquam
+      deserunt
+      quisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse, cupiditate neque quas!
+    </p>
+  </p-card>
+</div>

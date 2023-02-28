@@ -1,0 +1,6 @@
+.iconIdle {
+  width: 100%;
+}
+:host::ng-deep .p-button {
+  width: 100% !important;
+}

@@ -1,0 +1,214 @@
+<app-menus [title]="title"></app-menus>
+<app-modulo-aplicacion></app-modulo-aplicacion>
+<app-contacto [user]="user_online"></app-contacto>
+<app-avisos></app-avisos>
+<app-simbologia></app-simbologia>
+<app-profile [user]="user_online"></app-profile>
+
+<p-confirmDialog
+  [baseZIndex]="10000"
+  [closable]="false"
+  [style]="{ width: '300px' }"
+  key="logout"
+>
+</p-confirmDialog>
+
+<!-- HEADER -->
+<p-toolbar class="menubar-dtic">
+  <div class="p-toolbar-group-left">
+    <!-- MENUS (NAVEGACION) -->
+    <button
+      (click)="show_menus_sidebar()"
+      icon="{{ _config.getIcon('navegacion') }}"
+      pButton
+      pRipple
+      type="button"
+      class="p-button-rounded p-button-text p-sm p-mr-2"
+      [ngClass]="{ 'header-button': !tokenError && !maintenance }"
+      *ngIf="config.SISTEMA.LOADS.MENUS.BUTTON"
+      title="{{ 'menus.titulo' | translate }}"
+      [disabled]="tokenError || maintenance || navigationError"
+    ></button>
+
+    <!-- TITULO - DESKTOP -->
+    <div class="p-d-none p-d-md-inline-flex p-ai-center">
+      <img
+        src="https://repositorio.uv.cl/imagenes/logouv/logoUV.png"
+        width="80"
+        class="p-mr-4"
+      />
+      <div class="text-white">
+        {{ title }}
+      </div>
+    </div>
+  </div>
+
+  <div class="p-toolbar-group-right">
+    <!-- VOLVER AL PORTAL -->
+    <ng-container *ngIf="config.SISTEMA.LOADS.VOLVER_PORTAL.BUTTON">
+      <button
+        pButton
+        pRipple
+        type="button"
+        label="Portal"
+        icon="{{ _config.getIcon('goback_portal') }}"
+        class="p-button-rounded p-button-text p-ml-2 p-sm p-d-none p-d-md-inline-flex"
+        [ngClass]="{ 'header-button': !tokenError }"
+        (click)="backToPortal(); hideSidebar()"
+        title="{{ 'button.volver_al_portal.label' | translate }}"
+        [disabled]="tokenError"
+      ></button>
+      <button
+        pButton
+        pRipple
+        type="button"
+        icon="{{ _config.getIcon('goback_portal') }}"
+        class="p-button-rounded p-ml-2 p-button-text p-sm p-d-md-none"
+        [ngClass]="{ 'header-button': !tokenError }"
+        (click)="backToPortal(); hideSidebar()"
+        title="{{ 'button.volver_al_portal.label' | translate }}"
+        [disabled]="tokenError"
+      ></button>
+    </ng-container>
+
+    <!-- AVISOS -->
+    <ng-container *ngIf="config.SISTEMA.LOADS.AVISOS.BUTTON">
+      <button
+        pButton
+        pRipple
+        type="button"
+        class="p-ml-2 p-button-text p-sm"
+        [ngClass]="{
+          'header-button': !tokenError || avisos_component?.avisos.length > 0
+        }"
+        [disabled]="tokenError"
+        (click)="hideSidebar(); opAviso.toggle($event)"
+        title="{{ 'noticias_avisos.avisos.titulo' | translate }}"
+        icon="{{ _config.getIcon('avisos') }}"
+      >
+        <span
+          class="badge-top-right"
+          *ngIf="avisos_component?.avisos.length > 0"
+          >{{ avisos_component?.avisos.length }}</span
+        >
+      </button>
+      <p-overlayPanel
+        #opAviso
+        appendTo="body"
+        [style]="{ width: '300px' }"
+        styleClass="p-overlaypanel-custom"
+      >
+        <ng-template pTemplate>
+          <div
+            class="p-overlaypanel-title {{
+              avisos_component?.avisos.length > 0 ? 'p-mb-2' : ''
+            }}"
+          >
+            {{ "noticias_avisos.avisos.titulo" | translate }}
+          </div>
+          <div class="p-overlaypanel-body-custom">
+            <ng-container
+              *ngFor="
+                let aviso of avisos_component?.avisos;
+                let i = index;
+                let ult = last
+              "
+            >
+              <ng-container *ngIf="i < 3">
+                <div (click)="avisos_component?.select_aviso({ data: aviso })">
+                  <div class="avisoBox {{ !ult && i < 2 ? 'p-mb-2' : '' }}">
+                    <div class="text-muted small">
+                      <i class="fas fa-calendar"></i>
+                      {{ aviso.fecha | date : "MMMM dd, yyyy" }}
+                    </div>
+                    {{ aviso.nombre }}
+                  </div>
+                </div>
+              </ng-container>
+            </ng-container>
+            <ng-container *ngIf="avisos_component?.avisos.length == 0">
+              <div class="avisoBox">
+                {{ "noticias_avisos.avisos.empty" | translate }}
+              </div>
+            </ng-container>
+          </div>
+          <div
+            class="p-overlaypanel-footer-custom"
+            (click)="avisos_component?.show_all_avisos()"
+            *ngIf="avisos_component?.avisos.length > 3"
+          >
+            <hr style="border-top: 1px #dee2e6" />
+            <div class="title">
+              {{
+                (avisos_component?.avisos.length > 0
+                  ? "noticias_avisos.mostrar_todas"
+                  : "noticias_avisos.avisos.empty"
+                ) | translate
+              }}
+              {{
+                avisos_component?.avisos.length > 0
+                  ? "(" + avisos_component?.avisos.length + ")"
+                  : ""
+              }}
+            </div>
+          </div>
+        </ng-template>
+      </p-overlayPanel>
+    </ng-container>
+
+    <!-- AYUDA -->
+    <ng-container *ngIf="config.SISTEMA.LINKS.AYUDA.ACTIVO">
+      <button
+        pButton
+        pRipple
+        type="button"
+        icon="{{ _config.getIcon('ayuda') }}"
+        class="p-button-rounded p-ml-2 p-button-text p-sm"
+        [ngClass]="{ 'header-button': !tokenError }"
+        title="{{ 'ayuda.nombre' | translate }}"
+        [disabled]="tokenError"
+        (click)="hideSidebar(); ayudaM.toggle($event)"
+      ></button>
+      <p-menu
+        [model]="ayudaItems"
+        #ayudaM
+        [popup]="true"
+        styleClass="p-menu-header"
+      ></p-menu>
+    </ng-container>
+
+    <!-- MODULOS - APLICACIONES -->
+    <button
+      pButton
+      pRipple
+      type="button"
+      icon="{{ _config.getIcon('modulos_aplicaciones') }}"
+      class="p-button-rounded p-button-text p-sm p-ml-2"
+      (click)="show_modulos_aplicaciones_sidebar()"
+      *ngIf="
+        config.SISTEMA.LOADS.APPS.BUTTON || config.SISTEMA.LOADS.MODULOS.BUTTON
+      "
+      [ngClass]="{ 'header-button': !tokenError }"
+      title="{{ 'mods_apps.titulo' | translate }}"
+      [disabled]="tokenError || navigationError"
+    ></button>
+
+    <!-- USUARIO -->
+    <ng-container *ngIf="config.SISTEMA.LINKS.USUARIO.ACTIVO">
+      <p-avatar
+        image="{{ user_online?.foto }}"
+        styleClass="rounded-circle"
+        class="p-ml-3"
+        shape="circle"
+        title="{{ 'usuario.profile.titulo' | translate }}"
+        (click)="hideSidebar(); userM.toggle($event)"
+      ></p-avatar>
+      <p-menu
+        [model]="usuarioItems"
+        #userM
+        [popup]="true"
+        styleClass="p-menu-header"
+      ></p-menu>
+    </ng-container>
+  </div>
+</p-toolbar>

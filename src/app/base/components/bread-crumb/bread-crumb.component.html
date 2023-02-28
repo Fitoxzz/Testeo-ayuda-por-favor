@@ -1,0 +1,6 @@
+<p-breadcrumb
+  [model]="breadCrumb"
+  [home]="{ icon: 'pi pi-home', nav: true }"
+  (onItemClick)="goHome($event)"
+  *ngIf="breadCrumb.length > 0 && show"
+></p-breadcrumb>

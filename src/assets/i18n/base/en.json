@@ -1,0 +1,270 @@
+{
+  "loading": "Waiting please...",
+  "idioma": {
+    "summary": "Language",
+    "detail": "English activated"
+  },
+  "primeng": {
+    "startsWith": "Starts with",
+    "contains": "Contains",
+    "notContains": "Not contains",
+    "endsWith": "Ends with",
+    "equals": "Equals",
+    "notEquals": "Not equals",
+    "lt": "Less than",
+    "lte": "Less than or equal to",
+    "gt": "Greater than",
+    "gte": "Great then or equals",
+    "is": "Is",
+    "isNot": "Is not",
+    "before": "Before",
+    "after": "After",
+    "clear": "Clear",
+    "apply": "Apply",
+    "matchAll": "Match All",
+    "matchAny": "Match Any",
+    "addRule": "Add Rule",
+    "removeRule": "Remove Rule",
+    "accept": "Yes",
+    "reject": "No",
+    "choose": "Choose",
+    "upload": "Upload",
+    "cancel": "Cancel",
+    "dayNames": [
+      "Sunday",
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday"
+    ],
+    "dayNamesShort": ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
+    "dayNamesMin": ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"],
+    "monthNames": [
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "October",
+      "November",
+      "December"
+    ],
+    "monthNamesShort": [
+      "Jan",
+      "Feb",
+      "Mar",
+      "Apr",
+      "May",
+      "Jun",
+      "Jul",
+      "Aug",
+      "Sep",
+      "Oct",
+      "Nov",
+      "Dec"
+    ],
+    "today": "Today",
+    "weekHeader": "Wk"
+  },
+  "button": {
+    "aceptar": "Accept",
+    "cancelar": "Cancel",
+    "enviar": "Send",
+    "volver": "Back",
+    "cerrar": "Close",
+    "volver_al_portal": {
+      "label": "Back to Portal",
+      "text": "Are you sure?",
+      "error": "An error has ocurred while back to portal. Try again."
+    }
+  },
+  "ayuda": {
+    "nombre": "Help",
+    "contacto": {
+      "titulo": "Contact",
+      "subtitulo": "Write us your inquiries and/or questions.<br/>We will contact you as soon as possible. A copy will be send to the registered email.",
+      "correo": "Email",
+      "mensaje": "Message",
+      "nombre": "Name",
+      "validar": {
+        "correo": "Write a valid email",
+        "mensaje": "Write the contact message",
+        "success": "Do you want send your inquiries/questions?"
+      },
+      "success": "Questions send successfully",
+      "error": "An error occurred while trying to submit your query. Try again."
+    },
+    "simbologia": {
+      "titulo": "Legend / Simbology",
+      "simbolos": {
+        "navegacion": {
+          "nombre": "Navigation",
+          "glosa": "You can access the different sections that the aplication has"
+        },
+        "portal": {
+          "nombre": "Portal",
+          "glosa": "You can go back to the portal from where you came"
+        },
+        "avisos": {
+          "nombre": "Notices",
+          "glosa": "Universal messaging for special events"
+        },
+        "ayuda": {
+          "nombre": "Help",
+          "glosa": "For questions and inquiries use the following:",
+          "subs": {
+            "contacto": {
+              "nombre": "Contact",
+              "glosa": "Contact us for any problems and inquiries with our applications"
+            },
+            "simbologia": {
+              "nombre": "Legend / Simbology",
+              "glosa": "Icons and their meanings"
+            }
+          }
+        },
+        "modulos_apps": {
+          "nombre": "My applications",
+          "glosa": "Navigate between all the available applications and portals"
+        },
+        "usuario": {
+          "nombre": "My profile",
+          "glosa": "In your user account you have:",
+          "subs": {
+            "profile": {
+              "nombre": "My data",
+              "glosa": "You can see your presentation card"
+            },
+            "correo": {
+              "nombre": "UV email",
+              "glosa": "Access you institutional email quickly"
+            },
+            "cambiaclave": {
+              "nombre": "Change password",
+              "glosa": "You can change or recover your password , personal email, etc, from your institutional account"
+            },
+            "logout": {
+              "nombre": "Logout",
+              "glosa": "To end your current session"
+            }
+          }
+        }
+      }
+    }
+  },
+  "datosIniciales": {
+    "titulo": "Initial data",
+    "error": "An error has ocurred while getting initial aplication data."
+  },
+  "usuario": {
+    "titulo": "My profile",
+    "profile": {
+      "titulo": "My data",
+      "rut": "Rut",
+      "nombre": "Name",
+      "correo_uv": "UV email",
+      "correo_personal": "Personal email",
+      "idioma": "Language",
+      "error": "An error has ocurred while getting your account data."
+    },
+    "cambia_clave": "Cambia clave",
+    "logout": "Log out",
+    "logout_msgs": "Are you sure?"
+  },
+  "menus": {
+    "titulo": "Navigate",
+    "error": " An error has ocurred while getting the navigation."
+  },
+  "mods_apps": {
+    "titulo": "My apps",
+    "modulos": {
+      "titulo": "Apps",
+      "subtitulo": "Apps of:",
+      "error": " An error has ocurred while getting your portal's aplications.",
+      "maintenance": "The application is currently under maintenance"
+    },
+    "aplicaciones": {
+      "titulo": "Portals",
+      "error": " An error has ocurred while getting your portals."
+    },
+    "errorNavigate": "An error has ocurred when you go to aplication/portal. Try again."
+  },
+  "noticias_avisos": {
+    "noticias": {
+      "titulo": "News",
+      "single": "New",
+      "empty": "No news",
+      "click": "Click on them to know more."
+    },
+    "avisos": {
+      "titulo": "Alerts",
+      "single": "Alert",
+      "empty": "No alerts",
+      "click": "Click on them to know more."
+    },
+    "dias": "days",
+    "mostrar_todas": "Show all",
+    "publicado_el": "Posted on"
+  },
+  "system_handler": {
+    "404": {
+      "titulo": "Page not found",
+      "text": "The page doesn't exists in this app",
+      "back": "Back home"
+    },
+    "no-content": {
+      "titulo": "Services error",
+      "text": "An error has occurred in the institutional services conection.<br/> For questions, please contact us at email <em>soporte@uv.cl</em>"
+    },
+    "no-token": {
+      "titulo": "Session expired",
+      "text": "Your current session has expired. Please log in again.",
+      "go_login": "Back to Institutional Login"
+    },
+    "maintenance": {
+      "titulo": "In maintenance",
+      "textModulo": "This app is currently under maintenance.<br/> For questions, please contact us at email <em>soporte@uv.cl</em>",
+      "textMenu": "The menu you want to access is currently under maintenance.<br/> For questions, please contact us at email <em>soporte@uv.cl</em>",
+      "backHome": "Back home",
+      "backPortal": "Back to Portal"
+    },
+    "error": {
+      "titulo": "Ooops, Error",
+      "text": "We apologize. An error has ocurred in the app.<br/> For questions, please contact us at email <em>soporte@uv.cl</em>",
+      "codigo": "Code",
+      "nivel": "Level",
+      "type": "Type",
+      "detalle": "Detail"
+    },
+    "develop": {
+      "titulo": "In development",
+      "text": "We apologize. This section is actually under development.<br/> For questions, please contact us at email <em>soporte@uv.cl</em>",
+      "back": "Back home"
+    },
+    "reporte": {
+      "text": "Error in report: {{val}}"
+    }
+  },
+  "idle": {
+    "titulo": "Are you there?",
+    "body": "Do you want more time to navigate?",
+    "button": "Yes please"
+  },
+  "forms": {
+    "fields": "(*) Required field",
+    "ejemplo": "Example",
+    "required": "Required field",
+    "invalid": "Invalid field",
+    "no_results": "No results",
+    "filter": "Filter"
+  },
+  "routing":{
+    "canActivate": "You don't have permissions to enter. Please contact us at email soporte@uv.cl"
+  }
+}

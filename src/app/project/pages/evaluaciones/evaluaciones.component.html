@@ -1,0 +1,54 @@
+<h1 style="text-align: center;">Revisa las Facultades</h1>
+<div class="p-col-12 p-sm-12 p-md-12 p-lg-12 p-xl-12">
+<button pButton type="button" label="Obtener Facultades" (click) = "getFacultades()"></button>
+</div>
+
+
+
+<div class = "p-grid">
+  <div class="p-col-12 p-sm-12 p-md-12 p-lg-12 p-xl-12">
+    <textarea pInputTextarea [(ngModel)]="textArea"></textarea>
+  </div>
+  <div class="p-col-12 p-sm-12 p-md-12 p-lg-12 p-xl-12">
+    {{textArea}}
+  </div>
+</div>
+
+<div class = "p-grid">
+  <div class="p-col-12 p-sm-12 p-md-12 p-lg-4 p-xl-4">
+    <ul>
+      <ng-container *ngFor="let facu of facultades">  <!-- DIRECTIVA PROPIA DE ANGULAR (*NG) "HAZME (variable) =  FACU de FACULTADES " -->
+        <li>({{facu.codigo}}) - {{facu.nombre}}</li> <!-- al ser un objeto se debe llamar  los datos a traves de la variable en la que se hizo la directiva-->
+      </ng-container>
+
+    </ul>
+
+  </div>
+
+  <div class="p-col-12 p-sm-12 p-md-12 p-lg-8 p-xl-8"> <!-- todo el ancho de la pantalla-->
+    <p-table [value]="facultades">
+      <ng-template pTemplate="header">
+          <tr>
+              <th style="width: 100px;">Codigo</th>
+              <th>Nombre</th>
+          </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-facu>
+          <tr>
+              <td style="width: 100px;">{{facu.codigo}}</td>
+              <td>{{facu.nombre}}</td>
+
+          </tr>
+      </ng-template>
+      <ng-template pTemplate="emptymessage" let-columns>
+        <tr>
+            <td [attr.colspan]="2">
+                Sin registros
+            </td>
+        </tr>
+    </ng-template>
+    </p-table>
+  </div>
+
+</div>
+

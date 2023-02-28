@@ -1,0 +1,13 @@
+<div class="p-text-center">
+  <div class="error-icon"><i class="fas fa-code"></i></div>
+  <p class="error-title">
+    {{ "system_handler.develop.titulo" | translate }}
+  </p>
+  <p [innerHTML]="'system_handler.develop.text' | translate"></p>
+  <br />
+  <p-button
+    (click)="goHome()"
+    label="{{ 'system_handler.develop.back' | translate }}"
+    icon="pi pi-home"
+  ></p-button>
+</div>

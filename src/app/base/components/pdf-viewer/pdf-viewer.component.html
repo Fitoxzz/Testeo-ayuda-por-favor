@@ -1,0 +1,37 @@
+<ngx-extended-pdf-viewer
+  *ngIf="data"
+  [src]="data"
+  [textLayer]="true"
+  [height]="height"
+  [filenameForDownload]="filename"
+  [backgroundColor]="'#525659'"
+  [enableDragAndDrop]="false"
+  [customToolbar]="additionalButtons"
+  [theme]="'dark'"
+  [logLevel]="0"
+>
+</ngx-extended-pdf-viewer>
+<ng-template #additionalButtons>
+  <div class="header">
+    <div class="title-box">
+      {{ filename }}
+    </div>
+  </div>
+  <div id="toolbarViewer">
+    <div id="toolbarViewerLeft">
+      <pdf-toggle-sidebar></pdf-toggle-sidebar>
+      <pdf-paging-area></pdf-paging-area>
+    </div>
+    <div id="toolbarViewerRight">
+      <pdf-rotate-page></pdf-rotate-page>
+      <pdf-presentation-mode></pdf-presentation-mode>
+      <pdf-print></pdf-print>
+      <app-open-in-new-tab></app-open-in-new-tab>
+      <pdf-download></pdf-download>
+      <pdf-bookmark></pdf-bookmark>
+      <div class="verticalToolbarSeparator hiddenSmallView"></div>
+      <pdf-toggle-secondary-toolbar></pdf-toggle-secondary-toolbar>
+    </div>
+    <pdf-zoom-toolbar></pdf-zoom-toolbar>
+  </div>
+</ng-template>

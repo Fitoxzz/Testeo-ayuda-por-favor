@@ -1,0 +1,121 @@
+<p-toast baseZIndex="5000" key="contacto"></p-toast>
+<p-confirmDialog
+  header="{{ 'ayuda.contacto.titulo' | translate }}"
+  [baseZIndex]="10000"
+  rejectButtonStyleClass="p-button-text p-button-secondary p-button-sm"
+  acceptButtonStyleClass="p-button-sm"
+>
+</p-confirmDialog>
+
+<p-dialog
+  header="{{ 'ayuda.contacto.titulo' | translate }}"
+  [baseZIndex]="10000"
+  [(visible)]="showDialog"
+  [modal]="true"
+  [style]="{ width: '40vw' }"
+  [maximizable]="true"
+  [draggable]="false"
+  [resizable]="false"
+  [position]="'top'"
+  [breakpoints]="{ '960px': '75vw', '640px': '100vw' }"
+>
+  <form #contactForm="ngForm">
+    <div class="p-grid p-fluid">
+      <div class="p-col-12 p-sm-12 p-md-12 p-lg-12 p-xl-12 p-text-center">
+        <span [innerHTML]="'ayuda.contacto.subtitulo' | translate"></span>
+      </div>
+      <ng-container *ngIf="anonUser">
+        <div class="p-field p-col-12 p-sm-12 p-md-12 p-lg-12 p-xl-12 p-mb-0">
+          <label> {{ "ayuda.contacto.nombre" | translate }} * </label>
+          <input
+            pInputText
+            type="text"
+            name="nombre"
+            #nombre="ngModel"
+            [(ngModel)]="template.nombre"
+            required
+          />
+          <div *ngIf="nombre.invalid && (nombre.dirty || nombre.touched)">
+            <small *ngIf="nombre.errors.required" class="p-error">{{
+              "forms.required" | translate
+            }}</small>
+          </div>
+        </div>
+        <div class="p-field p-col-12 p-sm-12 p-md-12 p-lg-12 p-xl-12 p-mb-0">
+          <label>RUT *</label>
+          <small>({{ "forms.ejemplo" | translate }}: 12.345.678-9)</small>
+          <input
+            pInputText
+            type="text"
+            name="rut"
+            #rut="ngModel"
+            [(ngModel)]="template.rut"
+            validateRut
+            formatRut
+            required
+          />
+          <div *ngIf="rut.invalid && (rut.dirty || rut.touched)">
+            <small
+              *ngIf="rut.errors.invalidRut || rut.errors.required"
+              class="p-error"
+              >{{ "forms.invalid" | translate }}</small
+            >
+          </div>
+        </div>
+      </ng-container>
+      <div class="p-field p-col-12 p-sm-12 p-md-12 p-lg-12 p-xl-12 p-mb-0">
+        <label> {{ "ayuda.contacto.correo" | translate }} * </label>
+        <input
+          pInputText
+          type="email"
+          name="correo"
+          #correo="ngModel"
+          [(ngModel)]="template.correoUV"
+          required
+          email
+        />
+        <div *ngIf="correo.invalid && (correo.dirty || correo.touched)">
+          <small *ngIf="correo.errors.required" class="p-error">{{
+            "forms.required" | translate
+          }}</small>
+          <small *ngIf="correo.errors.email" class="p-error">{{
+            "forms.invalid" | translate
+          }}</small>
+        </div>
+      </div>
+      <div class="p-field p-col-12 p-sm-12 p-md-12 p-lg-12 p-xl-12 p-mb-0">
+        <label> {{ "ayuda.contacto.mensaje" | translate }} * </label>
+        <textarea
+          pInputTextarea
+          style="resize: none"
+          name="body"
+          rows="6"
+          #body="ngModel"
+          [(ngModel)]="template.body"
+          required
+        ></textarea>
+        <div *ngIf="body.invalid && (body.dirty || body.touched)">
+          <small *ngIf="body.errors.required" class="p-error">{{
+            "forms.required" | translate
+          }}</small>
+        </div>
+      </div>
+    </div>
+  </form>
+
+  <ng-template pTemplate="footer">
+    <p-button
+      label="{{ 'button.cerrar' | translate }}"
+      icon="pi pi-times"
+      styleClass="p-button-sm p-button-secondary p-button-text"
+      (click)="showDialog = false"
+    ></p-button>
+    <p-button
+      label="{{ 'button.enviar' | translate }}"
+      icon="pi pi-envelope"
+      styleClass="p-button-sm"
+      (click)="contactForm.valid && sendContacto()"
+      [disabled]="!contactForm.valid"
+    ></p-button>
+  </ng-template>
+</p-dialog>

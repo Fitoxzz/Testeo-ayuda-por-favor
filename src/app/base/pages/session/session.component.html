@@ -1,0 +1,15 @@
+<div class="p-text-center">
+  <div class="error-icon"><i class="fas fa-user-clock"></i></div>
+  <p class="error-title">
+    {{ "system_handler.no-token.titulo" | translate }}
+  </p>
+  <p>
+    {{ "system_handler.no-token.text" | translate }}
+  </p>
+  <br />
+  <p-button
+    (click)="goLogin()"
+    label="{{ 'system_handler.no-token.go_login' | translate }}"
+    icon="pi pi-sign-out"
+  ></p-button>
+</div>

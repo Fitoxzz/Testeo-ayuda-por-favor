@@ -1,0 +1,14 @@
+.country-item {
+  display: flex;
+  align-items: center;
+}
+
+.country-item img.flag {
+  width: 18px;
+  margin-right: 0.5rem;
+}
+
+.foto_user > img {
+  width: 7rem;
+  border-radius: 4px;
+}

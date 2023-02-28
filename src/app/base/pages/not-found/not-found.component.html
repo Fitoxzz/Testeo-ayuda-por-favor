@@ -1,0 +1,13 @@
+<div class="p-text-center">
+  <div class="error-icon">404</div>
+  <p class="error-title">
+    {{ "system_handler.404.titulo" | translate }}
+  </p>
+  <p [innerHTML]="'system_handler.404.text' | translate"></p>
+  <br />
+  <p-button
+    (click)="goHome()"
+    label="{{ 'system_handler.404.back' | translate }}"
+    icon="pi pi-home"
+  ></p-button>
+</div>
