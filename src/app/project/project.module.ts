@@ -14,9 +14,10 @@ import { HomeComponent } from './pages/home/home.component';
 import { HomeMenuButtonsComponent } from '../base/components/home-menu-buttons/home-menu-buttons.component';
 import { EvaluacionesComponent } from './pages/evaluaciones/evaluaciones.component';
 import { FormularioComponent } from './pages/formulario/formulario.component';
+import { MostrarAlumnoComponent } from './pages/mostrar-alumno/mostrar-alumno.component';
 
 @NgModule({
-    declarations: [HomeComponent, HomeMenuButtonsComponent, EvaluacionesComponent, FormularioComponent],
+    declarations: [HomeComponent, HomeMenuButtonsComponent, EvaluacionesComponent, FormularioComponent, MostrarAlumnoComponent],
     imports: [
         CommonModule,
         TranslateModule,
