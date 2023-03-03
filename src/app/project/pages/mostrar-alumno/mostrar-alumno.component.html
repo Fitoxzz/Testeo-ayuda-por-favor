@@ -1,0 +1,51 @@
+<p>mostrar-alumno works!</p>
+
+
+<div class="card">
+  <h5>Filter Menu</h5>
+  <p-table #dt1 [value]="alumnos" [rows]="10" [showCurrentPageReport]="true" [rowsPerPageOptions]="[10,25,50]"
+    [paginator]="true" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+    [globalFilterFields]="['alumnos.nombre','alumnos.paterno',]">
+    <ng-template pTemplate="caption">
+      <div class="flex">
+        <button pButton label="Clear" class="p-button-outlined" icon="pi pi-filter-slash" (click)="clear(dt1)"></button>
+        <span class="p-input-icon-left ml-auto">
+          <i class="pi pi-search"></i>
+          <input pInputText type="text" (input)="dt1.filterGlobal($event.target.value, 'contains')"
+            placeholder="Search keyword" />
+        </span>
+      </div>
+    </ng-template>
+    <ng-template pTemplate="header">
+      <tr>
+        <th style="min-width:15rem">
+          <div class="flex justify-content-center align-items-center">
+            Nombres
+            <p-columnFilter type="text" field=".alumnos.nombre"></p-columnFilter>
+          </div>
+        </th>
+        <th style="min-width:15rem">
+          <div class="flex justify-content-center align-items-center">
+            Apellido Paterno
+            <p-columnFilter type="text" field="alumnos.paterno"></p-columnFilter>
+          </div>
+        </th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-alumnos>
+      <tr>
+        <td>
+          {{alumnos.nombre}}
+        </td>
+        <td>
+          {{alumnos.paterno}}
+        </td>
+      </tr>
+      <ng-template pTemplate="emptymessage">
+        <tr>
+          <td colspan="7">No customers found.</td>
+        </tr>
+      </ng-template>
+    </ng-template>
+  </p-table>
+</div>

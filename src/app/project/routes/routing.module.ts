@@ -9,6 +9,7 @@ import { RouterModule } from '@angular/router';
 
 import { EvaluacionesComponent } from "../pages/evaluaciones/evaluaciones.component";
 import { FormularioComponent } from '../pages/formulario/formulario.component';
+import { MostrarAlumnoComponent } from '../pages/mostrar-alumno/mostrar-alumno.component';
 
 const routes: Routes = [
     {
@@ -23,7 +24,11 @@ const routes: Routes = [
     {
         path: 'parcial',
         component: FormularioComponent,
-    }
+    },
+    {
+        path: 'examen',
+        component: MostrarAlumnoComponent,
+    },
 ];
 
 @NgModule({
