@@ -17,7 +17,7 @@
 <div class = "p-grid">
   <div class="p-col-12 p-sm-12 p-md-12 p-lg-4 p-xl-4">
     <ul>
-      <ng-container *ngFor="let facu of facultades">  <!-- DIRECTIVA PROPIA DE ANGULAR (*NG) "HAZME (variable) =  FACU de FACULTADES " -->
+      <ng-container *ngFor="let facu of facultades"><!-- DIRECTIVA PROPIA DE ANGULAR (*NG) "HAZME (variable) =  FACU de FACULTADES " -->
         <li>({{facu.codigo}}) - {{facu.nombre}}</li> <!-- al ser un objeto se debe llamar  los datos a traves de la variable en la que se hizo la directiva-->
       </ng-container>
 
@@ -51,4 +51,6 @@
   </div>
 
 </div>
+
+
 

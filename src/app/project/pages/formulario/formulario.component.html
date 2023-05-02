@@ -1,22 +1,48 @@
-<p>formulario works!</p>
-<input type="text" pInputText [(ngModel)]="params.rut" />
-<div>
-  <button pButton type="button" label="Click" (click)="getDatos()"></button>
-</div>
 
+<div className="input">
+  <span class="p-float-label">
+    <input id="float-input" type="text" pInputText [(ngModel)]="params.rut" placeholder="Ingresa tu RUT"> 
+</span>
+</div>
+<div>
+  <!--<input id="myInput" type="text" pInputText [(ngModel)]="params.rut"/>-->
+  <button pButton type="button" label="Buscar" (click)="getDatos()"></button>
+  <button pButton type="button" onclick="document.getElementById('float-input').value = ''" style="background-color: red;">Limpiar</button> <!-- Limpiar BOTON-->
+</div>  
 
 <div *ngIf="this.alumno">
   <p-card header="{{this.alumno?.nombres}}" [style]="{'width': '25rem', 'margin-bottom': '2em'}">
     <ng-template pTemplate="header">
       <img alt="Card" src="https://repositorio.uv.cl/bancoFotos/18269043/banner/instructivo_matricula.png">
     </ng-template>
-    <p-chip styleClass="mr-2 custom-chip">{{this.alumno?.rut}}</p-chip>
+    <p-chip styleClass="mr-2 custom-chip">{{this.alumno?.rut}}-{{this.alumno?.dv}} </p-chip>
     <p-chip>{{this.alumno?.codigo}}</p-chip>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error repudiandae numquam
-      deserunt
-      quisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse, cupiditate neque quas!
-    </p>
   </p-card>
 </div>
 
-hols soy valentina
+<!--<div class="row">
+  <div class="col">
+    <div class="card">
+      <h3>Card 1</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card">
+      <h3>Card 2</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card">
+      <h3>Card 3</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card">
+      <h3>Card 4</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    </div>
+  </div>
+</div>-->

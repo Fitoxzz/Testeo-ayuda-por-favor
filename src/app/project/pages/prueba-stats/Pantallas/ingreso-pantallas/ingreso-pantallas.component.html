@@ -1,0 +1,444 @@
+<div class="content-tabs-general" style="justify-content: center;">
+  <p-tabView>
+    <p-tabPanel header="Aplicación App TUI UV">
+      <div class="content-tabs">
+        <p-tabView>
+
+
+          <!-- ***************************** MENU PANTALLAS ***************************** -->
+
+
+          <p-tabPanel header="Pantallas">
+
+            <!-- **************** GRAFICOS GENERALES **************** -->
+
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col-6">col-6
+                  <p-chart type="bar" [options]="basicOptions" [data]="data2"></p-chart>
+                </div>
+                <div class="col-6">col-6
+                  <p-table #dt1 [value]="info1" [rows]="4" [showCurrentPageReport]="true" [paginator]="true"
+                    currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+                    [globalFilterFields]="['vista']">
+                    <ng-template pTemplate="caption">
+                      <div class="flex">
+                        <span class="p-input-icon-left ml-auto">
+                          <i class="pi pi-search"></i>
+                          <input pInputText type="text" (input)="dt1.filterGlobal($event.target.value, 'contains')"
+                            placeholder="Filtrar" />
+                        </span>
+                      </div>
+                    </ng-template>
+
+                    <ng-template pTemplate="header">
+                      <tr>
+                        <th style="min-width:10rem">
+                          <div class="flex justify-content-center align-items-center">
+                            Pantallas
+                          </div>
+                        </th>
+                        <th style="min-width:10rem">
+                          <div class="flex justify-content-center align-items-center">
+                            Visualizaciones
+                          </div>
+                        </th>
+                      </tr>
+                    </ng-template>
+                    <ng-template pTemplate="body" let-info1>
+                      <tr>
+                        <td>
+                          {{info1?.vista}}
+                        </td>
+                        <td>
+                          {{info1?.ingresos}}
+                        </td>
+                      </tr>
+                      <ng-template pTemplate="emptymessage">
+                        <tr>
+                          <td colspan="2">No customers found.</td>
+                        </tr>
+                      </ng-template>
+                    </ng-template>
+                  </p-table>
+                </div>
+              </div>
+
+            </div>
+
+
+
+            <!-- **************** FILTRAR FECHAS **************** -->
+
+            <div class="row margin-top">
+              <div class="calendar-wrapper">
+                <div class="calendar-container">
+                  <h3>Desde</h3>
+                  <p-calendar [(ngModel)]="fecha_inicial" (onSelect)="onSelectDate()" [maxDate]="maxDate"></p-calendar>
+                </div>
+                <div class="calendar-container">
+                  <h3>Hasta</h3>
+                  <p-calendar [(ngModel)]="fecha_final" (onSelect)="onSelectDate1()" [maxDate]="maxDate"></p-calendar>
+                </div>
+                <div class="calendar-container">
+                </div>
+                <button pButton type="button" label="Buscar" style="background-color: green;"
+                  (click)="llamarControladorPantallas()"></button>
+
+              </div>
+            </div>
+
+            <!-- **************** MOSTRAR RESULTADOS **************** -->
+
+
+
+            <!-- ******** TOP 5 ******** -->
+
+            <ng-container *ngIf="mostrarResult">
+              <div class="row margin-top">
+                <div class="col-6">
+                  <h3 style="margin-right: 10px;">Visualizaciones de Pantallas
+                    <i class="pi pi-info-circle"
+                      title="Este gráfico muestra la cantidad de ingresos que tienen las vistas en el periodo de tiempo seleccionado."></i>
+                  </h3>
+                  <p-chart type="bar" [data]="data3"></p-chart>
+                </div>
+                <div class="col-6">
+                  <div class="card">
+                    <p-table #dt1 [value]="info" [rows]="4" [paginator]="true"
+                      currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+                      [globalFilterFields]="['vista']">
+                      <ng-template pTemplate="caption">
+                        <div class="flex">
+                          <span class="p-input-icon-left ml-auto">
+                            <i class="pi pi-search"></i>
+                            <input pInputText type="text" (input)="dt1.filterGlobal($event.target.value, 'contains')"
+                              placeholder="Filtrar" />
+                          </span>
+                        </div>
+                      </ng-template>
+                      <ng-template pTemplate="header">
+                        <tr>
+                          <th style="min-width:10rem">
+                            <div class="flex justify-content-center align-items-center">
+                              Pantallas
+                            </div>
+                          </th>
+                          <th style="min-width:10rem">
+                            <div class="flex justify-content-center align-items-center">
+                              Visualizaciones
+                            </div>
+                          </th>
+                        </tr>
+                      </ng-template>
+                      <ng-template pTemplate="body" let-info>
+                        <tr>
+                          <td>
+                            {{info?.vista}}
+                          </td>
+                          <td>
+                            {{info?.ingresos}}
+                          </td>
+                        </tr>
+                        <ng-template pTemplate="emptymessage">
+                          <tr>
+                            <td colspan="2">No customers found.</td>
+                          </tr>
+                        </ng-template>
+                      </ng-template>
+                    </p-table>
+                  </div>
+                </div>
+              </div>
+            </ng-container>
+
+          </p-tabPanel>
+
+
+
+
+          <!-- ***************************** MENU CARRERA ***************************** -->
+
+
+          <p-tabPanel header="Carreras">
+            <div class="container-fluid" style="display: flex; justify-content: center;">
+              <div class="row">
+                <div class="col-4">
+                  <p-card header="Carrera con más interacción" [style]="{
+                    border: '2px solid black', 
+                    borderRadius: '15px', 
+                    width: '450px', 
+                    backgroundColor: '#002E38',
+                    color: '#06717e'
+                }">
+                    <ng-template pTemplate="subtitle">
+                      Carrera {{carreraSelecc?.carrera}} - Grado {{carreraSelecc?.grado}}
+                    </ng-template>
+                    <p-chip>
+                      <h1 >{{carreraSelecc?.Interaccion}}</h1>
+                    </p-chip>
+
+                  </p-card>
+
+                </div>
+              </div>
+            </div>
+
+
+            <!-- <button pButton type="button" style="background-color: rgb(0, 60, 255);" (click)="getTopAlumnoCarreras()"
+                (click)="getCantidadTotalInteracciones()" (click)="getTotalAlumnosAPPTUI()"
+                (click)="getTotalAlumnoXCarrera()" (click)="getTopCarreras()">Información</button> -->
+
+            <!-- ******** Carreras con más interacciones ******** -->
+
+            <div class="p-d-flex p-jc-center margin-top" style="background-color: hsl(47, 91%, 91%);">
+
+              <div class="col-5" style="align-items: center;" *ngIf="this.carreras">
+                <div class="titulo01" style="display: flex; justify-content: center;">
+                  <h3 style="margin-right: 10px;">Carreras con más
+                    interacciones
+                    <i class="pi pi-info-circle" title="Esta tabla muestra las carreras con más interacciones."></i>
+                  </h3>
+                </div>
+                <div class="card">
+                  <p-table #dt1 [value]="this.carreras" [rows]="5" [showCurrentPageReport]="true">
+
+                    <ng-template pTemplate="caption">
+                    </ng-template>
+                    <ng-template pTemplate="header">
+                      <tr>
+                        <th style="min-width:8rem">
+                          <div class="flex justify-content-center align-items-center">
+                            Interacciones
+                          </div>
+                        </th>
+                        <th style="min-width:8rem">
+                          <div class="flex justify-content-center align-items-center">
+                            Carreras
+                          </div>
+                        </th>
+                      </tr>
+                    </ng-template>
+                    <ng-template pTemplate="body" let-carreras>
+                      <tr>
+                        <td>
+                          {{carreras?.Interaccion}}
+                        </td>
+                        <td>
+                          {{carreras?.carrera}}
+                        </td>
+                      </tr>
+                      <ng-template pTemplate="emptymessage">
+                        <tr>
+                          <td colspan="2">No customers found.</td>
+                        </tr>
+                      </ng-template>
+                    </ng-template>
+                  </p-table>
+                </div>
+              </div>
+
+
+
+              <!-- ******** Alumnos por Carrera ******** -->
+
+              <div class="col-5" style="align-items: center;" style="align-items: center;" *ngIf="data">
+                <div class="titulo02" style="display: flex; justify-content: center;">
+                  <h3>Alumnos por Carrera
+                    <i class="pi pi-info-circle"
+                      title="Esta tabla muestra la cantidad de estudiantes que tiene una carrera interactuando con la aplicación"></i>
+                  </h3>
+                </div>
+                <div class="card">
+                  <p-table #dt1 [value]="data" [rows]="5" [showCurrentPageReport]="true"
+                    [rowsPerPageOptions]="[5,10,25,50]" [paginator]="true"
+                    currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+                    [globalFilterFields]="['carrera','grado']">
+                    <ng-template pTemplate="caption">
+                      <div class="flex">
+                        <button pButton label="Limpiar" class="p-button-outlined" icon="pi pi-filter-slash"
+                          (click)="clear(dt1)"></button>
+                        <span class="p-input-icon-left ml-auto">
+                          <i class="pi pi-search"></i>
+                          <input pInputText type="text" (input)="dt1.filterGlobal($event.target.value, 'contains')"
+                            placeholder="Filtrar" />
+                        </span>
+                      </div>
+                    </ng-template>
+                    <ng-template pTemplate="header">
+                      <tr>
+                        <th style="min-width:10rem">
+                          <div class="flex justify-content-center align-items-center">
+                            Carrera
+                          </div>
+                        </th>
+                        <th style="min-width:8rem">
+                          <div class="flex justify-content-center align-items-center">
+                            Grado
+                          </div>
+                        </th>
+                        <th style="min-width:8rem">
+                          <div class="flex justify-content-center align-items-center">
+                            Alumnos
+                          </div>
+                        </th>
+                      </tr>
+                    </ng-template>
+                    <ng-template pTemplate="body" let-data>
+                      <tr>
+                        <td>
+                          {{data?.carrera}}
+                        </td>
+                        <td>
+                          {{data?.grado}}
+                        </td>
+                        <td>
+                          {{data?.totalAlumnos}}
+                        </td>
+                      </tr>
+                      <ng-template pTemplate="emptymessage">
+                        <tr>
+                          <td colspan="3">No customers found.</td>
+                        </tr>
+                      </ng-template>
+                    </ng-template>
+                  </p-table>
+                </div>
+              </div>
+
+            </div>
+          </p-tabPanel>
+
+
+          <!-- ***************************** MENU ALUMNO ***************************** -->
+
+
+          <p-tabPanel header="Alumnos">
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col-6" style="display: flex; justify-content: center;">
+                  <p-card header="Interacciones Totales" [style]="{
+                    border: '2px solid black', 
+                    borderRadius: '15px', 
+                    width: '450px', 
+                    backgroundColor: '#002E38',
+                    color: '#06717e',
+                    justifyContent: 'center'
+                }">
+                    <p-chip>
+                      <h1>{{totalInteracciones}}</h1>
+                    </p-chip>
+                  </p-card>
+                </div>
+                <div class="col-6">
+
+
+                  <p-card header="Alumnos usando la aplicación" [style]="{
+                    border: '2px solid black', 
+                    borderRadius: '15px', 
+                    width: '450px', 
+                    backgroundColor: '#002E38',
+                    color: '#06717e'
+                }">
+                    <p-chip>
+                      <h1>{{total}}</h1>
+                    </p-chip>
+                  </p-card>
+                </div>
+              </div>
+            </div>
+
+            <!-- ******** Alumnos con más interacciones ******** -->
+
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col-4">
+                  <p-card styleClass ="card-alumno" header="Alumno Con más Interacción " [style]="{
+              border: '2px solid black', 
+              borderRadius: '15px', 
+              width: '450px', 
+              backgroundColor: '#003c58', 
+              color: '#06717e'
+          }">
+                    <ng-template pTemplate="subtitle">
+                      Carrera: {{alumnoSelec1?.carrera}}
+                    </ng-template>
+                    <p-chip>
+                      <h1>{{alumnoSelec1?.RUT}}: {{alumnoSelec1?.TOTAL}}</h1>
+
+                    </p-chip>
+
+                    <!-- RUT: e.RUT,
+              carrera: e.nombre.trim(),
+              TOTAL: e.cant, -->
+                  </p-card>
+                </div>
+                <div class="col-8" style="align-items: center;" *ngIf="alumnos">
+                  <div class="titulo02" style="display: flex; justify-content: center;">
+                    <h3>Alumnos con más interacciones
+                      <i class="pi pi-info-circle"
+                        title="Esta tabla muestra los estudiantes que más interacciones tienen con la aplicación"></i>
+                    </h3>
+                  </div>
+                  <div class="card">
+                    <p-table #dt1 [value]="alumnos" [rows]="1" [showCurrentPageReport]="true">
+                      <ng-template pTemplate="caption">
+                      </ng-template>
+                      <ng-template pTemplate="header">
+                        <tr>
+                          <th style="min-width:10rem">
+                            <div class="flex justify-content-center align-items-center">
+                              Alumno
+                            </div>
+                          </th>
+                          <th style="min-width:8rem">
+                            <div class="flex justify-content-center align-items-center">
+                              Interacciones
+                            </div>
+                          </th>
+                          <th style="min-width:8rem">
+                            <div class="flex justify-content-center align-items-center">
+                              Carrera
+                            </div>
+                          </th>
+                        </tr>
+                      </ng-template>
+                      <ng-template pTemplate="body" let-alumnos>
+                        <tr>
+                          <td>
+                            {{alumnos?.RUT}}
+                          </td>
+                          <td>
+                            {{alumnos?.TOTAL}}
+                          </td>
+                          <td>
+                            {{alumnos?.carrera}}
+                          </td>
+                        </tr>
+                        <ng-template pTemplate="emptymessage">
+                          <tr>
+                            <td colspan="3">No customers found.</td>
+                          </tr>
+                        </ng-template>
+                      </ng-template>
+                    </p-table>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </p-tabPanel>
+        </p-tabView>
+      </div>
+
+
+
+    </p-tabPanel>
+    <p-tabPanel header="Aplicación Academia UV">
+
+    </p-tabPanel>
+
+  </p-tabView>
+
+</div>
+

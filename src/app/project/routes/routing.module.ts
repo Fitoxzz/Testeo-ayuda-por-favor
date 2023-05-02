@@ -10,6 +10,9 @@ import { RouterModule } from '@angular/router';
 import { EvaluacionesComponent } from "../pages/evaluaciones/evaluaciones.component";
 import { FormularioComponent } from '../pages/formulario/formulario.component';
 import { MostrarAlumnoComponent } from '../pages/mostrar-alumno/mostrar-alumno.component';
+import { FormComponent } from '../pages/form/form.component';
+import { AlumnosporCarreraComponent } from '../components/alumnospor-carrera/alumnospor-carrera.component';
+import { PruebaStatsComponent } from '../pages/prueba-stats/prueba-stats.component';
 
 const routes: Routes = [
     {
@@ -28,6 +31,19 @@ const routes: Routes = [
     {
         path: 'examen',
         component: MostrarAlumnoComponent,
+    },
+    {
+        path: 'final',
+        component: FormComponent,
+    },
+    {
+        path: 'estadistica',
+        component: AlumnosporCarreraComponent,
+    },
+    {
+        path: 'cierre',
+        component: PruebaStatsComponent,
+
     },
 ];
 

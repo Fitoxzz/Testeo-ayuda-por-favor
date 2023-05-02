@@ -1,0 +1,31 @@
+<!--<p-autoComplete [(ngModel)]="selectedCountry" [suggestions]="filteredCountries" (completeMethod)="filterCountry($event)"
+  field="name" [minLength]="1"></p-autoComplete>
+-->
+<div>
+    <h4>Nacionalidad</h4>
+    <p-autoComplete [(ngModel)]="selectedCountryAdvanced" [suggestions]="filteredCountries"
+        (completeMethod)="filterCountry($event)" field="name" [dropdown]="true">
+        <ng-template let-country pTemplate="item">
+            <div class="country-item">
+                <div>{{country.name}}</div>
+            </div>
+        </ng-template>
+    </p-autoComplete>
+</div>
+
+<!--<h5>Grouped</h5>
+<p-autoComplete [group]="true" [suggestions]="filteredGroups" (completeMethod)="filterGroupedCity($event)" field="label"
+  [multiple]="true" [dropdown]="true">
+  <ng-template let-group pTemplate="group">
+    <div class="p-d-flex p-ai-center">
+      <span>{{group.label}}</span>
+    </div>
+  </ng-template>
+</p-autoComplete>
+
+<h5>Multiple</h5>
+<span class="p-fluid">
+    <p-autoComplete [(ngModel)]="selectedCountries" [suggestions]="filteredCountries" (completeMethod)="filterCountry($event)" field="name" [multiple]="true">
+    </p-autoComplete>
+</span>
+-->
