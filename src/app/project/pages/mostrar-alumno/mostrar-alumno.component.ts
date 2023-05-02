@@ -5,28 +5,29 @@ import { SystemService } from '../../../base/services/system.service';
 import { ErroresHandler } from '../../../base/tools/handler/error/error.handler';
 
 @Component({
-  selector: 'app-mostrar-alumno',
-  templateUrl: './mostrar-alumno.component.html',
-  styleUrls: ['./mostrar-alumno.component.css']
+    selector: 'app-mostrar-alumno',
+    templateUrl: './mostrar-alumno.component.html',
+    styleUrls: ['./mostrar-alumno.component.css']
 })
-export class MostrarAlumnoComponent{
+export class MostrarAlumnoComponent {
     constructor(
         private MostrarAlumnoService: MostrarAlumnoService,
-        private SystemServicervice: SystemService,
-        private ErroresHandlerr: ErroresHandler
-        ){}
+        private SystemService: SystemService,
+        private ErroresHandler: ErroresHandler,
+    ) { }
 
-    alumnos: any =  [];
+    alumnos: any;
 
-    async alumnosSelecc(){  // ASIGNAMOS NOMBRE A LA FUNCION
-        try {               // TRY Y CATCH PARA CAPTURAR EL ERROR E INTENTAR DAR LA DATA
-
-            this.SystemServicervice.setLoading(true);
-            this.alumnos = await this.MostrarAlumnoService.alumnosSelecc();
+    async alumnoSelecc() {  // ASIGNAMOS NOMBRE A LA FUNCION 
+        try {
+            this.SystemService.setLoading(true);
+            this.alumnos = await this.MostrarAlumnoService.alumnoSelecc();
             console.log(this.alumnos);
-            this.SystemServicervice.setLoading(false);
+            this.SystemService.setLoading(false);
+            return (this.alumnos);
+
         } catch (e) {
-            this.ErroresHandlerr.processError(e, "alert", "error, revisa aqui")
+            this.ErroresHandler.processError(e, "alert", "Hubo un error al traer los alumnos", "examen");
         }
     }
 }

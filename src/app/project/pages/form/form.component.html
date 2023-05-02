@@ -1,0 +1,38 @@
+<body>
+    <div class="formcontainer">
+        <div>
+            <label for="nombre">Nombre</label>
+            <input [(ngModel)]="params.nombre" type="text" id="nombre" pInputText  placeholder="Nombre" required />
+        </div>
+        <div>
+            <label for="apellido">Apellido</label>
+            <input [(ngModel)]="params.apellido" type="text" id="apellido" pInputText  placeholder="Apellido" required />
+        </div>
+        <div>
+            <label for="rut">RUT</label>
+            <input [(ngModel)]="params.rut" type="text" id="rut" pInputText  placeholder="RUT" required />
+            <span> - </span>
+            <input [(ngModel)]="params.dv" type="text" id="dv" pInputText  placeholder="DV" required />
+        </div>
+        <div>
+            <label for="correo">Correo Electronico</label>
+            <input [(ngModel)]="params.correo" type="text" id="correo" pInputText placeholder="E-mail" required />
+        </div>
+        <div>
+            <label for="number">Telefono</label>
+            <input [(ngModel)]="params.telefono" type="number" id="telefono" pInputText placeholder="974226542" required />
+        </div>
+            <!-- <div class="Nacionalidad">
+        <app-autocomplete required [(ngModel)]="params.nacionalidad"></app-autocomplete>
+    </div>
+    <div class="Nacimiento">
+        <app-calendario required [(ngModel)]="params.fecha"></app-calendario>
+    </div> -->
+            <div>
+                <!--<input id="myInput" type="text" pInputText [(ngModel)]="params.rut"/>-->
+                <button pButton type="button" label="Aceptar" (click)="datosFormulario()"></button>
+                <!-- <button pButton type="button" onclick="document.getElementById('Name').value = ''"
+            style="background-color: red;">Limpiar</button> Limpiar BOTON -->
+            </div>
+    </div>
+</body>

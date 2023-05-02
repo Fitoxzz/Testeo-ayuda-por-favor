@@ -13,11 +13,7 @@ import { InvocaService } from '../../../base/services/invoca.service';
 })
 export class FormularioComponent {
     constructor (
-        private InvocaService: InvocaService,
-        private FormularioService: FormularioService,
-        private SystemServicevice: SystemService,
-        private ErroresHandler: ErroresHandler,
-
+         private FormularioService: FormularioService,
         ){}
 
         params:any = {
@@ -29,5 +25,9 @@ export class FormularioComponent {
         this.alumno = await this.FormularioService.getDatosAlumno(this.params)
         console.log(this.alumno)
         return(this.alumno)
+    }
+    limpiar(){
+        this.params = "";
+        return(this.params)
     }
 }

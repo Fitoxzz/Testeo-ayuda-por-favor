@@ -51,14 +51,16 @@
               "node_modules/quill/dist/quill.snow.css",
               "src/app/base/styles/styles.css",
               "src/app/project/styles/styles.css",
-              "src/app/project/styles/styles.scss"
+              "src/app/project/styles/styles.scss",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css"
             ],
             "scripts": [
               "node_modules/jquery/dist/jquery.min.js",
               "node_modules/quill/dist/quill.js",
               "node_modules/@fortawesome/fontawesome-free/js/brands.js",
               "node_modules/@fortawesome/fontawesome-free/js/solid.js",
-              "node_modules/@fortawesome/fontawesome-free/js/fontawesome.js"
+              "node_modules/@fortawesome/fontawesome-free/js/fontawesome.js",
+              "node_modules/chart.js/dist/Chart.js"
             ],
             "allowedCommonJsDependencies": ["angular2-moment", "url"]
           },

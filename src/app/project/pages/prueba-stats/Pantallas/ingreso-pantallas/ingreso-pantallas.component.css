@@ -1,0 +1,42 @@
+
+.content-tabs{
+  justify-content: center;
+}
+
+.titulo-grande {
+  font-size: 3rem;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+:host ::ng-deep .card-alumno {
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+
+}
+
+:host ::ng-deep .p-card .p-card-content {
+  font-size: 18px;
+  font-style: italic;
+  font-family: cursive;
+  font-weight: 700;
+  color: black;
+}
+
+.calendar-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.calendar-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 20px;
+}

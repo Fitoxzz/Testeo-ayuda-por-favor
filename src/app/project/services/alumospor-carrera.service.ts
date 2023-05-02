@@ -4,14 +4,16 @@ import { InvocaService } from '../../base/services/invoca.service';
 @Injectable({
   providedIn: 'root'
 })
-export class MostrarAlumnoService {
+export class AlumosporCarreraService {
 
   constructor(
     private invoke: InvocaService,
-  ) { }
+  
+  ) {
 
-  async alumnoSelecc() {
-    return await this.invoke.httpInvoke('alumnoSelecc');
+   }
+   async getTotalAlumnos() {
+    return await this.invoke.httpInvoke('getTotalAlumnos');
   }
 
 }
