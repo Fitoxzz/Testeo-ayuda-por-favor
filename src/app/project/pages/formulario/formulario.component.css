@@ -1,0 +1,15 @@
+.row {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  
+  .col {
+    flex: 1;
+    margin: 10px;
+    border: 1px solid #ddd;
+  }
+  
+  .card {
+    padding: 10px;
+  }  

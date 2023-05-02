@@ -10,7 +10,7 @@ export class FormularioService {
   constructor(private InvocaService: InvocaService){}
     async getDatosAlumno(params?: any): Promise<any> {
         try {
-            console.log(params)
+            
             return await this.InvocaService.httpInvoke('getDatosAlumno', params)
         } catch (e) {
             throw new Error(e);
