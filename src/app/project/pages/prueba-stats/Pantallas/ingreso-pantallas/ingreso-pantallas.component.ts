@@ -17,17 +17,17 @@ interface grafico {
 })
 
 
-export class IngresoPantallasComponent implements OnInit{
+export class IngresoPantallasComponent implements OnInit {
 
 
-  estilo1: {'background':'blue'};
+  estilo1: { 'background': 'blue' };
   basicOptions: any;
   graficos: grafico[];
   tipoGrafico: string;
   fecha_inicial: Date;
   fecha_final: Date;
-  maxDate: Date; 
- mostrarResult: boolean= false;
+  maxDate: Date;
+  mostrarResult: boolean = false;
   totalInteracciones: number;
   total: number;
 
@@ -56,7 +56,6 @@ export class IngresoPantallasComponent implements OnInit{
 
 
   ngOnInit() {
-    console.log("aqui")
     this.top5Pantallas();
     this.getAccesoTotalPantallas();
     this.getCantidadTotalInteracciones();
@@ -64,7 +63,6 @@ export class IngresoPantallasComponent implements OnInit{
     this.getTopCarreras();
     this.getTotalAlumnoXCarrera();
 
-      
   }
 
   onSelectDate() {
@@ -93,69 +91,55 @@ export class IngresoPantallasComponent implements OnInit{
     console.log(fecha1);
   }
 
-  async llamarControladorPantallas(){
-
-
+  async llamarControladorPantallas() {
     this.SystemService.setLoading(true);
+    await this.getAccesoTotalPantallasDia()
+    await this.top5PantallasDia()
+    this.SystemService.setLoading(false);
+
+
+    /*this.SystemService.setLoading(true);
 
     this.info = await this.IngresoPantallasService.getAccesoTotalPantallasDia(this.param)
-    const vistas = this.info.map(item => item.vista);
-      const ingresos = this.info.map(item => item.ingresos);
-      this.data = {
-        labels: vistas,
-        datasets: [
-          {
-            label: 'Estadisticas',
-            data: ingresos
-          }
-        ]
-      }
-    this.info1 = await this.IngresoPantallasService.getAccesoTotalPantallas(this.param)
-    const vistas1 = this.info1.map(item => item.vista);
-      const ingresos1 = this.info1.map(item => item.ingresos);
-      this.data1 = {
-        labels: vistas1,
-        datasets: [
-          {
-            label: 'Estadisticas',
-            data: ingresos1
-          }
-        ]
-      }
-    this.info2 = await this.IngresoPantallasService.top5Pantallas(this.param)
-    const vistas2 = this.info2.map(item => item.vista);
-    const ingresos2 = this.info2.map(item => item.ingresos);
-    this.data2 = {
-      labels: vistas2,
+    const vistas = this.info.map(item => item.nombre);
+    const ingresos = this.info.map(item => item.ingresos);
+    this.data = {
+      labels: vistas,
       datasets: [
         {
           label: 'Estadisticas',
-          data: ingresos2
+          data: ingresos
         }
       ]
-    }
+    };
+
+
     this.info3 = await this.IngresoPantallasService.top5PantallasDia(this.param)
-    const vistas3 = this.info3.map(item => item.vista);
-      const ingresos3 = this.info3.map(item => item.ingresos);
-      this.data3 = {
-        labels: vistas3,
-        datasets: [
-          {
-            label: 'Estadisticas',
-            data: ingresos3
-          }
-        ]
-      }
+    const vistas3 = this.info3.map(item => item.nombre);
+    const ingresos3 = this.info3.map(item => item.ingresos);
+    this.data3 = {
+      labels: vistas3,
+      datasets: [
+        {
+          label: 'Estadisticas',
+          data: ingresos3
+        }
+      ]
+    };
 
     this.SystemService.setLoading(false);
 
     this.mostrarResult = true;
 
   }
+  */
+}
 
 
   data: any
   info: any
+
+
   async getAccesoTotalPantallasDia() {  // ASIGNAMOS NOMBRE A LA FUNCION 
     try {
       this.SystemService.setLoading(true);
@@ -186,12 +170,13 @@ export class IngresoPantallasComponent implements OnInit{
 
   data1: any
   info1: any
+
   async getAccesoTotalPantallas() {  // ASIGNAMOS NOMBRE A LA FUNCION 
     try {
       this.SystemService.setLoading(true);
       this.info1 = await this.IngresoPantallasService.getAccesoTotalPantallas(this.param)
       console.log(this.param)
-      const vistas = this.info1.map(item => item.vista);
+      const vistas = this.info1.map(item => item.nombre);
       const ingresos = this.info1.map(item => item.ingresos);
       this.data1 = {
         labels: vistas,
@@ -216,7 +201,7 @@ export class IngresoPantallasComponent implements OnInit{
 
       this.SystemService.setLoading(true);
       this.info2 = await this.IngresoPantallasService.top5Pantallas(this.param)
-      const vistas = this.info2.map(item => item.vista);
+      const vistas = this.info2.map(item => item.nombre);
       const ingresos = this.info2.map(item => item.ingresos);
       this.data2 = {
         labels: vistas,
@@ -229,7 +214,7 @@ export class IngresoPantallasComponent implements OnInit{
       }
       this.SystemService.setLoading(false);
       this.mostrarResult = true;
-      
+
     } catch (e) {
       this.ErroresHandler.processError(e, "alert", "Hubo un error al traer la info2", "cierre");
     }
@@ -237,12 +222,13 @@ export class IngresoPantallasComponent implements OnInit{
 
   data3: any
   info3: any
+
   async top5PantallasDia() {  // ASIGNAMOS NOMBRE A LA FUNCION 
     try {
       console.log(this.info3)
       this.SystemService.setLoading(true);
       this.info3 = await this.IngresoPantallasService.top5PantallasDia(this.param)
-      const vistas = this.info3.map(item => item.vista);
+      const vistas = this.info3.map(item => item.nombre);
       const ingresos = this.info3.map(item => item.ingresos);
       this.data3 = {
         labels: vistas,
@@ -251,14 +237,7 @@ export class IngresoPantallasComponent implements OnInit{
             label: 'Estadisticas',
             data: ingresos
           }
-        ],
-        backgroundColor: [
-          '#EC407A',
-          '#AB47BC',
-          '#42A5F5',
-          '#7E57C2',
-          '#66BB6A'
-      ]
+        ]
       }
 
       this.SystemService.setLoading(false);
@@ -304,21 +283,23 @@ export class IngresoPantallasComponent implements OnInit{
     this.mostrarResult = true;
   }
 
-  
+
   async getCantidadTotalInteracciones() {
     this.SystemService.setLoading(true);
-    let data = await this.IngresoPantallasService.getCantidadTotalInteracciones();
-    
-    this.totalInteracciones = parseInt(data[0].InteraccionTotal)
+    let data: any = await this.IngresoPantallasService.getCantidadTotalInteracciones();
+    console.log(data)
+    this.totalInteracciones = parseInt(data.Cantidad)
     console.log("estas son las interacciones", this.totalInteracciones)
 
-    let data1 = await this.IngresoPantallasService.getTotalAlumnosAPPTUI();
-    this.total = parseInt(data1[0].cantAlumno);
+
+    let data1: any = await this.IngresoPantallasService.getTotalAlumnosAPPTUI();
+    console.log(data1)
+    this.total = parseInt(data1.total_alumnos);
     console.log("total alumnos", this.total);
 
     this.SystemService.setLoading(false);
     this.mostrarResult = true;
-    
+
   }
   alumnoSelec2: any
   async getTotalAlumnoXCarrera() {
