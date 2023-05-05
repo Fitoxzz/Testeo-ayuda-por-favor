@@ -14,19 +14,27 @@
 
             <div class="container-fluid">
               <div class="row">
-                <div class="col-6">col-6
+                <div class="col-6">
+                  <h3 style="margin-right: 10px;">Estadística General
+                    <i class="pi pi-info-circle"
+                      title="Este gráfico muestra la cantidad de ingresos que han tenido las vistas ."></i>
+                  </h3>
                   <p-chart type="bar" [options]="basicOptions" [data]="data2"></p-chart>
                 </div>
-                <div class="col-6">col-6
+                <div class="col-6">
+                  <h3 style="margin-right: 10px;">Tabla sobre Estadística General
+                    <i class="pi pi-info-circle"
+                      title="Este tabla muestra la cantidad de ingresos que han tenido las vistas ."></i>
+                  </h3>
                   <p-table #dt1 [value]="info1" [rows]="4" [showCurrentPageReport]="true" [paginator]="true"
-                    currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
-                    [globalFilterFields]="['vista']">
+                    currentPageReportTemplate="Mostrando desde {first} al {last} de {totalRecords} "
+                    [globalFilterFields]="['nombre']">
                     <ng-template pTemplate="caption">
                       <div class="flex">
                         <span class="p-input-icon-left ml-auto">
                           <i class="pi pi-search"></i>
                           <input pInputText type="text" (input)="dt1.filterGlobal($event.target.value, 'contains')"
-                            placeholder="Filtrar" />
+                            placeholder="Filtrar e.j: notificaciones" />
                         </span>
                       </div>
                     </ng-template>
@@ -48,7 +56,7 @@
                     <ng-template pTemplate="body" let-info1>
                       <tr>
                         <td>
-                          {{info1?.vista}}
+                          {{info1?.nombre}}
                         </td>
                         <td>
                           {{info1?.ingresos}}
@@ -74,14 +82,22 @@
               <div class="calendar-wrapper">
                 <div class="calendar-container">
                   <h3>Desde</h3>
-                  <p-calendar [(ngModel)]="fecha_inicial" (onSelect)="onSelectDate()" [maxDate]="maxDate"></p-calendar>
+                  <p-calendar placeholder="dd/mm/yy" [(ngModel)]="fecha_inicial" (onSelect)="onSelectDate()"
+                    [maxDate]="maxDate">
+                  </p-calendar>
+                  <i class="pi pi-info-circle" title=" 'Desde' ingresa datos desde las 00:00:00 del dia seleccionado.">
+                  </i>
                 </div>
                 <div class="calendar-container">
                   <h3>Hasta</h3>
-                  <p-calendar [(ngModel)]="fecha_final" (onSelect)="onSelectDate1()" [maxDate]="maxDate"></p-calendar>
+                  <p-calendar placeholder="dd/mm/yy" [(ngModel)]="fecha_final" (onSelect)="onSelectDate1()"
+                    [maxDate]="maxDate"></p-calendar>
+                    <i class="pi pi-info-circle"
+                    title=" 'Hasta' ingresa datos hasta las 23:59:59 del dia seleccionado."></i>
                 </div>
                 <div class="calendar-container">
                 </div>
+
                 <button pButton type="button" label="Buscar" style="background-color: green;"
                   (click)="llamarControladorPantallas()"></button>
 
@@ -97,23 +113,27 @@
             <ng-container *ngIf="mostrarResult">
               <div class="row margin-top">
                 <div class="col-6">
-                  <h3 style="margin-right: 10px;">Visualizaciones de Pantallas
+                  <h3 style="margin-right: 10px;">Estadística de Pantallas
                     <i class="pi pi-info-circle"
                       title="Este gráfico muestra la cantidad de ingresos que tienen las vistas en el periodo de tiempo seleccionado."></i>
                   </h3>
                   <p-chart type="bar" [data]="data3"></p-chart>
                 </div>
                 <div class="col-6">
+                  <h3 style="margin-right: 10px;">Tabla de Visualización
+                    <i class="pi pi-info-circle"
+                      title="Este gráfico muestra la cantidad de ingresos que tienen las vistas en el periodo de tiempo seleccionado."></i>
+                  </h3>
                   <div class="card">
-                    <p-table #dt1 [value]="info" [rows]="4" [paginator]="true"
-                      currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
-                      [globalFilterFields]="['vista']">
+                    <p-table #dt1 [value]="info" [rows]="4" [showCurrentPageReport]="true" [paginator]="true"
+                      currentPageReportTemplate="Mostrando desde {first} al {last} de {totalRecords} "
+                      [globalFilterFields]="['nombre']">
                       <ng-template pTemplate="caption">
                         <div class="flex">
                           <span class="p-input-icon-left ml-auto">
                             <i class="pi pi-search"></i>
                             <input pInputText type="text" (input)="dt1.filterGlobal($event.target.value, 'contains')"
-                              placeholder="Filtrar" />
+                              placeholder="Filtrar e.j notificaciones "/>
                           </span>
                         </div>
                       </ng-template>
@@ -134,7 +154,7 @@
                       <ng-template pTemplate="body" let-info>
                         <tr>
                           <td>
-                            {{info?.vista}}
+                            {{info?.nombre}}
                           </td>
                           <td>
                             {{info?.ingresos}}
@@ -163,7 +183,7 @@
           <p-tabPanel header="Carreras">
             <div class="container-fluid" style="display: flex; justify-content: center;">
               <div class="row">
-                <div class="col-4">
+                <div class="col-8" *ngIf="this.carreras">
                   <p-card header="Carrera con más interacción" [style]="{
                     border: '2px solid black', 
                     borderRadius: '15px', 
@@ -172,10 +192,10 @@
                     color: '#06717e'
                 }">
                     <ng-template pTemplate="subtitle">
-                      Carrera {{carreraSelecc?.carrera}} - Grado {{carreraSelecc?.grado}}
+                      {{carreraSelecc?.nombre}} - Grado {{carreraSelecc?.grado}}
                     </ng-template>
                     <p-chip>
-                      <h1 >{{carreraSelecc?.Interaccion}}</h1>
+                      <h1>{{carreraSelecc?.totalInt}}</h1>
                     </p-chip>
 
                   </p-card>
@@ -185,15 +205,12 @@
             </div>
 
 
-            <!-- <button pButton type="button" style="background-color: rgb(0, 60, 255);" (click)="getTopAlumnoCarreras()"
-                (click)="getCantidadTotalInteracciones()" (click)="getTotalAlumnosAPPTUI()"
-                (click)="getTotalAlumnoXCarrera()" (click)="getTopCarreras()">Información</button> -->
 
             <!-- ******** Carreras con más interacciones ******** -->
 
             <div class="p-d-flex p-jc-center margin-top" style="background-color: hsl(47, 91%, 91%);">
 
-              <div class="col-5" style="align-items: center;" *ngIf="this.carreras">
+              <div class="col-4" style="align-items: center;" *ngIf="this.carreras">
                 <div class="titulo01" style="display: flex; justify-content: center;">
                   <h3 style="margin-right: 10px;">Carreras con más
                     interacciones
@@ -222,10 +239,10 @@
                     <ng-template pTemplate="body" let-carreras>
                       <tr>
                         <td>
-                          {{carreras?.Interaccion}}
+                          {{carreras?.totalInt}}
                         </td>
                         <td>
-                          {{carreras?.carrera}}
+                          {{carreras?.nombre}}
                         </td>
                       </tr>
                       <ng-template pTemplate="emptymessage">
@@ -250,14 +267,11 @@
                   </h3>
                 </div>
                 <div class="card">
-                  <p-table #dt1 [value]="data" [rows]="5" [showCurrentPageReport]="true"
-                    [rowsPerPageOptions]="[5,10,25,50]" [paginator]="true"
-                    currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
-                    [globalFilterFields]="['carrera','grado']">
+                  <p-table #dt1 [value]="data" [rows]="5" [showCurrentPageReport]="true" [paginator]="true"
+                    currentPageReportTemplate="Mostrando desde {first} al {last} de {totalRecords} datos"
+                    [globalFilterFields]="['nombre','grado']">
                     <ng-template pTemplate="caption">
                       <div class="flex">
-                        <button pButton label="Limpiar" class="p-button-outlined" icon="pi pi-filter-slash"
-                          (click)="clear(dt1)"></button>
                         <span class="p-input-icon-left ml-auto">
                           <i class="pi pi-search"></i>
                           <input pInputText type="text" (input)="dt1.filterGlobal($event.target.value, 'contains')"
@@ -287,13 +301,13 @@
                     <ng-template pTemplate="body" let-data>
                       <tr>
                         <td>
-                          {{data?.carrera}}
+                          {{data?.nombre}}
                         </td>
                         <td>
                           {{data?.grado}}
                         </td>
                         <td>
-                          {{data?.totalAlumnos}}
+                          {{data?.totalAlu}}
                         </td>
                       </tr>
                       <ng-template pTemplate="emptymessage">
@@ -316,7 +330,7 @@
           <p-tabPanel header="Alumnos">
             <div class="container-fluid">
               <div class="row">
-                <div class="col-6" style="display: flex; justify-content: center;">
+                <div class="col-6" style="display: flex; justify-content: center;" *ngIf="totalInteracciones">
                   <p-card header="Interacciones Totales" [style]="{
                     border: '2px solid black', 
                     borderRadius: '15px', 
@@ -330,7 +344,7 @@
                     </p-chip>
                   </p-card>
                 </div>
-                <div class="col-6">
+                <div class="col-6" *ngIf="total">
 
 
                   <p-card header="Alumnos usando la aplicación" [style]="{
@@ -353,7 +367,7 @@
             <div class="container-fluid">
               <div class="row">
                 <div class="col-4">
-                  <p-card styleClass ="card-alumno" header="Alumno Con más Interacción " [style]="{
+                  <p-card styleClass="card-alumno" header="Alumno Con más Interacción " [style]="{
               border: '2px solid black', 
               borderRadius: '15px', 
               width: '450px', 
@@ -361,10 +375,10 @@
               color: '#06717e'
           }">
                     <ng-template pTemplate="subtitle">
-                      Carrera: {{alumnoSelec1?.carrera}}
+                      Carrera: {{alumnoSelec1?.nombre}}
                     </ng-template>
                     <p-chip>
-                      <h1>{{alumnoSelec1?.RUT}}: {{alumnoSelec1?.TOTAL}}</h1>
+                      <h1>{{alumnoSelec1?.rut}}: {{alumnoSelec1?.cantInt}}</h1>
 
                     </p-chip>
 
@@ -406,13 +420,13 @@
                       <ng-template pTemplate="body" let-alumnos>
                         <tr>
                           <td>
-                            {{alumnos?.RUT}}
+                            {{alumnos?.rut}}
                           </td>
                           <td>
-                            {{alumnos?.TOTAL}}
+                            {{alumnos?.cantInt}}
                           </td>
                           <td>
-                            {{alumnos?.carrera}}
+                            {{alumnos?.nombre}}
                           </td>
                         </tr>
                         <ng-template pTemplate="emptymessage">
@@ -441,4 +455,3 @@
   </p-tabView>
 
 </div>
-
