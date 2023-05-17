@@ -1,4 +1,11 @@
 
+
+body{
+  padding: 0;
+  margin: 0;
+
+
+}
 .content-tabs{
   justify-content: center;
 }
@@ -26,17 +33,230 @@
   color: black;
 }
 
-.calendar-wrapper {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  margin-top: 20px;
-}
 
-.calendar-container {
+
+
+
+.containerCarreras{
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-right: 20px;
+  justify-content: center;
+  margin: 1em;
+  padding: 1em;
+  border-radius: 50px;
+
+}
+#cardAlumno{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 3em;
+  position: relative;
+
+}
+
+/* FILTRAR FECHAS */
+.container2{
+  background-color:#003c58;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 1em;
+  padding: 20px 10px;
+  border-radius: 50px;
+
+
+}
+
+
+#item1{
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+}
+#item2{
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+
+}
+#item3{
+
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/*-----------------*/
+#item1Carrera{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+}
+
+
+/* ---------------------------*/
+.container-alumno{
+  margin: 10px;
+  padding: 20px;
+
+  display: flex;
+
+}
+
+/*.container{
+  flex-direction: column;
+  padding: 50px 15px;
+  display: flex;
+
+  margin: 20px;
+
+}
+*/
+.col-6{
+  padding: 20px 10px;
+  border-bottom: 2px solid grey;
+  line-height: 20px;
+}
+.col-6 h3{
+  color: black;
+  font-family: 'arial';
+  text-align: center;
+}
+.container-fluid{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.contenedor{
+  padding: 20px;
+
+  display: flex;
+  border-bottom: 2px solid black;
+  line-height: 20px;
+
+}
+.contenedor_cards{
+  background-color: #003c58;
+  width: 30%;
+  margin: 10px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 15px;
+  border-radius: 50px;
+}
+
+/*.contenedor_cardsAlumno{
+  background-color: #003c58;
+  width: 15%;
+  margin: 10px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 50px 15px;
+  border-bottom: 2px solid white;
+  line-height: 20px;
+  border-radius: 50px;
+}
+*/
+.contenedor_tabla{
+  justify-content: center;
+  display: flex;
+  align-items: center;
+
+  padding: 20px;
+  flex-wrap: wrap;
+}
+/*
+.contenedor_cardsAlumno h3{
+  color: white;
+  font-family: 'arial';
+  text-align: center;
+  font-size: 25px;
+
+}
+*/
+.contenedor_tabla h3{
+  width: 100%;
+  text-align: center;
+  color: black;
+
+}
+
+.contenedor_cards h1,.contenedor_cards h2,.contenedor_cards h3{
+  color: white;
+  font-family: 'arial';
+  text-align: center;
+
+}
+
+.contenedor_cards h1{
+
+  font-size: 20px;
+}
+.contenedor_cards h2{
+
+  font-size: 22px;
+
+}
+.contenedor_cards h3{
+
+  font-size: 25px;
+  padding: 5px 5px;
+  /*border-bottom: 2px solid black;
+  line-height: 20px;*/
+}
+
+
+@media screen and (max-width:800px){
+  .contenedor{
+    flex-wrap: wrap;
+  }
+  .contenedor_cards{
+    flex: auto;
+  }
+
+  
+}
+
+@media screen and (max-width:800px){
+  .container-fluid{
+    flex-wrap: wrap;
+  }
+  .row{
+    flex: auto;
+  }
+
+
+  
+}
+
+@media screen and (max-width:369px){
+
+  .contenedor_cards{
+    width: 100%;
+
+  }
+  
 }
